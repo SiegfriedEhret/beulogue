@@ -81,6 +81,8 @@ The optional ones are:
 
 Content items must be in the `content` folder of your site. The expected format is markdown.
 
+#### Front-matter
+
 You can use front-matter, like that:
 
 ```
@@ -105,30 +107,12 @@ The following properties are optional:
 
 - **tags** (array of string): some tags for your content.
 
-#### Multilingual site
+#### Shortcodes
 
-As explained in the Configuration part, you need at least one language, useful for the `lang` attribute for example.
+Shortcodes are small things that you can use in your contents.
 
-If our configuration is like the following:
-
-```yaml
-base: https://ehret.me
-title: My site
-languages:
-- en
-- fr
-```
-
-Your contents:
-
-- In *english*: filenames will be like `about.md` (no mention about the language in the filename).
-- In *other language*: filenames will be like `about.fr.md` if you have a `fr` language.
-- Filenames ending with a non defined language will given the default language.
-
-Structure:
-
-- If you have one language: everything will start the root of the `public` folder. A `feed.xml` file will be created in that folder.
-- If you have multiple languages: each language will start in the `public/<language>/` folder. A default `index.html` file will be at the root of the `public` folder, redirecting to the default language. A  `feed.xml` file will be created for each language.
+- **Dailymotion**: use `{{>dailymotion 12345}}` to embed a [Dailymotion](https://www.dailymotion.com/) video.
+- **YouTube**: use `{{>youtube 12345}}` to embed a [YouTube](https://www.youtube.com/) video.
 
 ### Templating
 
@@ -187,6 +171,31 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 - `beulogue`
 	- `cwd`: the current working directory.
 
+### Multilingual site
+
+As explained in the Configuration part, you need at least one language, useful for the `lang` attribute for example.
+
+If our configuration is like the following:
+
+```yaml
+base: https://ehret.me
+title: My site
+languages:
+- en
+- fr
+```
+
+Your contents:
+
+- In *english*: filenames will be like `about.md` (no mention about the language in the filename).
+- In *other language*: filenames will be like `about.fr.md` if you have a `fr` language.
+- Filenames ending with a non defined language will given the default language.
+
+Structure:
+
+- If you have one language: everything will start the root of the `public` folder. A `feed.xml` file will be created in that folder.
+- If you have multiple languages: each language will start in the `public/<language>/` folder. A default `index.html` file will be at the root of the `public` folder, redirecting to the default language. A  `feed.xml` file will be created for each language.
+
 ## Notes
 
 `beulogue` is an experiment to discover the [Crystal](https://crystal-lang.org/) programming language, 2 years after playing with [the same concept with Node.js](https://www.npmjs.com/package/beulogue).
@@ -203,7 +212,7 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 
 And maybe at some point:
 
-- [ ] shortcodes
+- [x] shortcodes
 - [ ] orphan pages
 - [ ] links between languages
 - [ ] tags
@@ -219,12 +228,13 @@ Licensed under the [GPLv3 license](./LICENSE).
 
 Check the [contributing](./CONTRIBUTING.md) document for some info.
 
-`beulogue` follows my own FibVer (Fibonacci Versioning), which is:
+`beulogue` follows my own FibVer (Fibonacci Versioning):
 
 - Basically, it follows Semantic Versioning.
 - You have to use Fibonacci suite numbers when you bump the version.
 - Until you bump a major version, don't reset patch. For a version, it gives an idea of how many features and bugfixes you made.
-- I'll spec that one day.
+
+I'll spec that one day...
 
 ### Contributing
 
