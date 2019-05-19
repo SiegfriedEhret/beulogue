@@ -2,7 +2,7 @@ require "crustache"
 
 class BeulogueContentFS < Crustache::HashFileSystem
   def load(name)
-    if /\Adailymotion\s+(\w+)\z/ === name
+    if /\Adailymotion\s+([\w\-_]+)\z/ === name
       id = $1
       html = <<-HTML
       <iframe
@@ -10,12 +10,12 @@ class BeulogueContentFS < Crustache::HashFileSystem
         src="https://www.dailymotion.com/embed/video/x78l9fk"
         frameborder="0"
         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen ></iframe>
+        allowfullscreen ><`/iframe>
 
       HTML
     end
 
-    if /\Ayoutube\s+(\w+)\z/ === name
+    if /\Ayoutube\s+([\w\-_]+)\z/ === name
       id = $1
       html = <<-HTML
       <iframe
