@@ -3,6 +3,10 @@ all: build
 build: ## Build beulogue
 	shards build
 
+build-and-run: build ## Build and run in test-site
+	cd test-site;\
+	beulogue
+
 install: ## Install dependencies for beulogue
 	shards install
 
