@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [1.5.2](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-1.5.2)
+
+- :bug: fix shortcode id regex
+
 ## [1.5.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-1.5.1)
 
 - :gift: add shortcodes for YouTube and Dailymotion.
