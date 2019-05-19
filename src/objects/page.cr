@@ -1,3 +1,5 @@
+require "./content"
+
 module Beulogue
   class BeuloguePage
     getter beulogueCwd : String?
@@ -13,7 +15,6 @@ module Beulogue
 
     def initialize(bo : BeulogueObject, config : BeulogueConfig)
       @beulogueCwd = config.cwd
-      @content = bo.content
       @date = bo.frontMatter.date
       @description = bo.frontMatter.description
       @language = bo.lang
@@ -22,12 +23,15 @@ module Beulogue
       @tags = bo.frontMatter.tags || Array(String).new
       @title = bo.frontMatter.title
       @url = bo.toURL
+
+      @content = BeulogueContent.process(bo.content) || ""
     end
 
     def to_hash
       model = {
         "beulogue" => {
-          "cwd" => @beulogueCwd,
+          "cwd"     => @beulogueCwd,
+          "version" => VERSION,
         },
         "content"       => @content,
         "date"          => @date,

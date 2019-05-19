@@ -80,23 +80,13 @@ module Beulogue
     end
 
     private def writeList(pages : Array(BeuloguePage), lang : String)
-      model = {
-        "beulogue" => {
-          "cwd" => @config.cwd,
-        },
-        "language" => lang,
-        "pages"    => pages.sort_by { |p| p.date }.reverse.map { |p| p.to_hash },
-        "site"     => {
-          "title"     => @config.title,
-          "languages" => @config.languages,
-        },
-      }
-
-      Beulogue.logger.debug "Writing list for lang #{lang}: #{model}"
-
       targetDir = @config.targetDir
 
       if !targetDir.nil?
+        model = BeulogueList.to_hash(@config, pages, lang)
+
+        Beulogue.logger.debug "Writing list for lang #{lang}: #{model}"
+
         File.write(Path[targetDir].join(lang, "index.html").to_s,
           HTML.unescape(@renderer.renderList(model)))
       end
