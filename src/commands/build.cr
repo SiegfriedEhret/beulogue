@@ -1,5 +1,5 @@
-require "../lib/conf"
-require "../lib/processor"
+require "../config"
+require "../pipeline/pipeline"
 
 module Beulogue
   module Commands
@@ -15,7 +15,7 @@ module Beulogue
 
         Beulogue.logger.info "Building site: «#{config.title}»"
 
-        processor = Processor.new(path, config)
+        processor = Beulogue::Pipeline::Pipeline.new(path, config)
         processor.run
       end
     end

@@ -1,48 +1,43 @@
-require "crustache"
-
-class BeulogueContentFS < Crustache::HashFileSystem
-  def load(name)
-    if /\Adailymotion\s+([\w\-_]+)\z/ === name
-      id = $1
-      html = <<-HTML
-      <iframe
-        width="560" height="315"
-        src="https://www.dailymotion.com/embed/video/#{id}"
-        frameborder="0"
-        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen ><`/iframe>
-
-      HTML
-    end
-
-    if /\Ayoutube\s+([\w\-_]+)\z/ === name
-      id = $1
-      html = <<-HTML
-      <iframe
-        width="560" height="315"
-        src="https://www.youtube.com/embed/#{id}"
-        frameborder="0"
-        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      HTML
-
-      return Crustache.parse html
-    end
-
-    super
-  end
-end
-
 module Beulogue
   class BeulogueContent
-    def self.process(content : String)
-      fs = BeulogueContentFS.new
-      fs.register "test", Crustache.parse content
+    getter fromPath : Path
+    getter toPath : Path
+    getter toURL : String
+    getter content : String
+    getter lang : String
+    getter frontMatter : BeulogueFrontMatter
 
-      engine = Crustache::Engine.new fs
-      output = IO::Memory.new
+    def initialize(@fromPath : Path, lang : String, cwd : Path)
+      frontMatterDelimiter = "---"
+      frontMatterDelimiterCount = 0
+      frontMatter = ""
+      content = ""
 
-      engine.render("test", nil)
+      File.read_lines(fromPath).each do |line|
+        if frontMatterDelimiterCount < 2
+          if line == frontMatterDelimiter
+            frontMatterDelimiterCount += 1
+          else
+            frontMatter += line + "\n"
+          end
+        else
+          content += line + "\n"
+        end
+      end
+
+      @frontMatter = BeulogueFrontMatter.from_yaml(frontMatter)
+      @content = Markdown.to_html(content)
+      @lang = lang
+
+      tempToPath = fromPath.to_s.sub("/content/", "/public/#{lang}/")
+
+      if (tempToPath.ends_with?(".#{lang}.md"))
+        @toPath = Path[tempToPath.sub(".#{lang}.md", ".html")]
+      else
+        @toPath = Path[tempToPath.sub(".md", ".html")]
+      end
+
+      @toURL = @toPath.to_s.gsub("//", "/").sub(cwd.join("public").to_s, "")
     end
   end
 end

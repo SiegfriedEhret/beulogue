@@ -1,17 +1,12 @@
 module Beulogue
   class BeulogueList
-    def self.to_hash(config : BeulogueConfig, pages : Array(BeuloguePage), lang : String)
+    def initialize(@pages : Array(BeuloguePage), @lang : String)
+    end
+
+    def to_hash
       model = {
-        "beulogue" => {
-          "cwd"     => config.cwd,
-          "version" => VERSION,
-        },
-        "language" => lang,
-        "pages"    => pages.sort_by { |p| p.date }.reverse.map { |p| p.to_hash },
-        "site"     => {
-          "title"     => config.title,
-          "languages" => config.languages,
-        },
+        "language" => @lang,
+        "pages"    => @pages.sort_by { |p| p.date }.reverse.map { |p| p.to_hash },
       }
 
       model
