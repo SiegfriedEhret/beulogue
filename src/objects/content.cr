@@ -7,7 +7,7 @@ class BeulogueContentFS < Crustache::HashFileSystem
       html = <<-HTML
       <iframe
         width="560" height="315"
-        src="https://www.dailymotion.com/embed/video/x78l9fk"
+        src="https://www.dailymotion.com/embed/video/#{id}"
         frameborder="0"
         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen ><`/iframe>
