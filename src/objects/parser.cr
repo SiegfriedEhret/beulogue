@@ -15,6 +15,17 @@ class BeulogueParserFS < Crustache::HashFileSystem
       HTML
     end
 
+    if /\Avimeo\s+([\w\-_]+)\z/ === name
+      id = $1
+      html = <<-HTML
+      <iframe src="https://player.vimeo.com/video/#{id}"
+        width="640" height="360"
+        frameborder="0"
+        allow="fullscreen"
+        allowfullscreen></iframe>
+      HTML
+    end
+
     if /\Ayoutube\s+([\w\-_]+)\z/ === name
       id = $1
       html = <<-HTML
