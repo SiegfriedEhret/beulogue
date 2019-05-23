@@ -155,13 +155,17 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 - `dateFormatted`: the same thing formatted as `YYYY-MM-DD`.
 - `content`: your content in html.
 - `language`: the language of your content.
-- `multilang`: an object with key/values representing languages and urls for the content in that language.
+- `multilang`: a list of objects with:
+	- `language`: a language (like in your beulogue.yml).
+	- `url`: the url for the matching language.
 - `url`: the url of your page.
 - `site`
 	- `title`: the title of the site.
 	- `languages`: a list of available languages for the site.
 - `beulogue`
 	- `cwd`: the current working directory.
+
+Note for `multilang`, you can use:
 
 #### Variables for the list template
 
