@@ -1,5 +1,6 @@
 module Beulogue
   class BeulogueContent
+    getter base : String
     getter fromPath : Path
     getter toPath : Path
     getter toURL : String
@@ -29,13 +30,16 @@ module Beulogue
       @content = Markdown.to_html(content)
       @lang = lang
 
+      suffix = ".md"
+      if fromPath.to_s.ends_with?(".#{lang}.md")
+        suffix = ".#{lang}.md"
+      end
+
+      @base = fromPath.to_s.sub(suffix, "")
+
       tempToPath = fromPath.to_s.sub("/content/", "/public/#{lang}/")
 
-      if (tempToPath.ends_with?(".#{lang}.md"))
-        @toPath = Path[tempToPath.sub(".#{lang}.md", ".html")]
-      else
-        @toPath = Path[tempToPath.sub(".md", ".html")]
-      end
+      @toPath = Path[tempToPath.sub(suffix, ".html")]
 
       @toURL = @toPath.to_s.gsub("//", "/").sub(cwd.join("public").to_s, "")
     end

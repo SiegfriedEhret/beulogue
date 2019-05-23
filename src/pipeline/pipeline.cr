@@ -20,7 +20,7 @@ module Beulogue
         elapsed_time = Time.measure do
           pages = files.map do |f|
             content = Beulogue::Pipeline::Converter.convert(f, "", @cwd)
-            Beulogue::Pipeline::Page.write(@renderer, content)
+            Beulogue::Pipeline::Page.write(@renderer, content, BeulogueMultilang.new)
           end
 
           Beulogue::Pipeline::List.write(@renderer, @config, pages, "")
@@ -32,25 +32,40 @@ module Beulogue
 
       def runMultiLanguage(files : Array(Path))
         filesPerLanguage = groupPerLanguage(files, @config.languages)
+        multiLang = BeulogueMultilang.new
 
+        times = Hash(String, Float64).new
+
+        contentsPerLanguage = Hash(String, Array(Beulogue::BeulogueContent)).new
         filesPerLanguage.each do |lang, filesForLanguage|
-          Beulogue.logger.debug "Pages for lang #{lang}, #{filesForLanguage}"
-
           elapsed_time = Time.measure do
             contents = filesForLanguage.map do |f|
               Beulogue.logger.debug "Processing #{f}"
-              Beulogue::Pipeline::Converter.convert(f, lang, @cwd)
+              content = Beulogue::Pipeline::Converter.convert(f, lang, @cwd)
+              multiLang.add content.base, lang, content.toURL
+              content
             end
+            contentsPerLanguage[lang] = contents
+          end
 
+          times[lang] = elapsed_time.total_milliseconds
+        end
+
+        contentsPerLanguage.each do |lang, contents|
+          Beulogue.logger.debug "Pages for lang #{lang}, #{contents}"
+
+          elapsed_time = Time.measure do
             pages = contents.map do |content|
-              Beulogue::Pipeline::Page.write(@renderer, content)
+              Beulogue::Pipeline::Page.write(@renderer, content, multiLang)
             end
 
-            Beulogue::Pipeline::List.write(@renderer, @config, pages, lang)
+            Beulogue::Pipeline::List.write(@renderer, @config, pages, lang) # TODO multilang
             Beulogue::Pipeline::RSS.write(@config, pages, lang)
           end
 
-          Beulogue.logger.info "Site for language #{lang} (#{filesForLanguage.size} pages) built in #{elapsed_time.total_milliseconds.round(2)}ms."
+          times[lang] = times[lang] + elapsed_time.total_milliseconds
+
+          Beulogue.logger.info "Site for language #{lang} (#{contents.size} pages) built in #{times[lang].round(2)}ms."
         end
 
         Beulogue::Pipeline::Redirection.write(@config)

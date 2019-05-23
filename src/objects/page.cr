@@ -6,14 +6,16 @@ module Beulogue
     getter date : Time
     getter description : String
     getter language : String
+    getter multilang : Hash(String, String)
     getter tags : Array(String)
     getter title : String
     getter url : String
 
-    def initialize(bo : BeulogueContent)
+    def initialize(bo : BeulogueContent, multilang : Hash(String, String))
       @date = bo.frontMatter.date
       @description = bo.frontMatter.description
       @language = bo.lang
+      @multilang = multilang
       @tags = bo.frontMatter.tags || Array(String).new
       @title = bo.frontMatter.title
       @url = bo.toURL
@@ -28,6 +30,7 @@ module Beulogue
         "dateFormatted" => @date.to_s("%F"),
         "description"   => @description,
         "language"      => @language,
+        "multilang"     => @multilang,
         "tags"          => tags,
         "title"         => @title,
         "url"           => @url,

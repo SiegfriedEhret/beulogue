@@ -1,11 +1,12 @@
 module Beulogue
   module Pipeline
     class Page
-      def self.write(renderer : Renderer, bo : BeulogueContent)
-        toDir = File.dirname(bo.toPath.to_s)
+      def self.write(renderer : Renderer, content : BeulogueContent, multiLang : BeulogueMultilang)
+        toDir = File.dirname(content.toPath.to_s)
+        model = BeuloguePage.new(content, multiLang.get(content.base))
+
         Dir.mkdir_p(toDir)
-        model = BeuloguePage.new(bo)
-        File.write(bo.toPath, HTML.unescape(renderer.renderPage(model.to_hash)))
+        File.write(content.toPath, HTML.unescape(renderer.renderPage(model.to_hash)))
 
         model
       end
