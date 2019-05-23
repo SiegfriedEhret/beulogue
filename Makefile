@@ -38,9 +38,11 @@ ifndef VERSION
 	$(error VERSION is undefined (make release VERSION=x.x.x))
 endif
 
-release: build git-src git-changelog git-readme git-test-site ## Release beulogue
+release-archive: build
 	cd bin ;\
 	tar czf beulogue-linux.tar.gz beulogue
+
+release: git-src git-test-site git-changelog git-readme git-version release-archive git-push ## Release beulogue
 
 run: ## Run in test-site
 	cd test-site;\
