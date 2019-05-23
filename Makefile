@@ -3,16 +3,48 @@ all: build
 build: ## Build beulogue
 	shards build
 
-build-and-run: build ## Build and run in test-site
-	cd test-site;\
-	beulogue
+build-and-run: build run ## Build and run in test-site
+
+git-changelog: ## Commit changelog
+	git add CHANGELOG.md ;\
+	git commit -m ":memo: update changelog"
+
+git-readme: ## Commit readme
+	git add README.md ;\
+	git commit -m ":memo: update readme"
+
+git-src: ## Commit src
+	git add src ;\
+	git commit -m ":gift: update code"
+
+git-push: check-env ## Push all the things
+	git push ;\
+	git tag release-$(VERSION) ;\
+	git push --tags
+
+git-test-site: ## Commit test-site
+	git add test-site ;\
+	git commit -m ":gift: update test site"
+
+git-version: ## Commit shards with new version
+	git add shards.yml ;\
+	git commit -m ":arrow_up: bump version"
 
 install: ## Install dependencies for beulogue
 	shards install
 
-release: build ## Release beulogue
+check-env:
+ifndef VERSION
+	$(error VERSION is undefined (make release VERSION=x.x.x))
+endif
+
+release: build git-src git-changelog git-readme git-test-site ## Release beulogue
 	cd bin ;\
 	tar czf beulogue-linux.tar.gz beulogue
+
+run: ## Run in test-site
+	cd test-site;\
+	beulogue
 
 update: ## Update dependencies
 	shards update
