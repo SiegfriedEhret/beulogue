@@ -6,21 +6,21 @@ module Beulogue
     getter date : Time
     getter description : String
     getter language : String
-    getter multilang : Hash(String, String)
+    getter multilang : Array(Hash(String, String))
     getter tags : Array(String)
     getter title : String
     getter url : String
 
-    def initialize(bo : BeulogueContent, multilang : Hash(String, String))
-      @date = bo.frontMatter.date
-      @description = bo.frontMatter.description
-      @language = bo.lang
+    def initialize(content : BeulogueContent, multilang : Array(Hash(String, String)))
+      @date = content.frontMatter.date
+      @description = content.frontMatter.description
+      @language = content.lang
       @multilang = multilang
-      @tags = bo.frontMatter.tags || Array(String).new
-      @title = bo.frontMatter.title
-      @url = bo.toURL
+      @tags = content.frontMatter.tags || Array(String).new
+      @title = content.frontMatter.title
+      @url = content.toURL
 
-      @content = BeulogueParser.parse(bo.content) || ""
+      @content = BeulogueParser.parse(content.content) || ""
     end
 
     def to_hash

@@ -15,7 +15,17 @@ module Beulogue
     end
 
     def get(url : String)
-      @data[url]
+      result = Array(String)
+      result = @data[url].map do |language, url|
+        model = {
+          "language" => language,
+          "url"      => url,
+        }
+
+        model
+      end
+
+      result
     end
   end
 end
