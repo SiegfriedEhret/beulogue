@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [2.0.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.0.0)
+
+- :boom: Actually make list of available languages work, so it breaks 1.13.3...
+
 ## [1.13.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-1.13.3)
 
 - :gift: add list of available languages for each page (also in list).
