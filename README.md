@@ -155,6 +155,7 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 - `dateFormatted`: the same thing formatted as `YYYY-MM-DD`.
 - `content`: your content in html.
 - `language`: the language of your content.
+- `multilang`: an object with key/values representing languages and urls for the content in that language.
 - `url`: the url of your page.
 - `site`
 	- `title`: the title of the site.
@@ -213,12 +214,19 @@ Structure:
 
 And maybe at some point:
 
+- [x] tags (in front matter)
 - [x] shortcodes
+- [x] links between languages
 - [ ] orphan pages
-- [ ] links between languages
-- [ ] tags
+- [ ] tags (pages)
 - [ ] drafts
+
+And probably won't:
+
 - [ ] pagination
+
+And absolutely won't:
+
 - [ ] livereload
 
 ## License
