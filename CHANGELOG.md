@@ -1,13 +1,17 @@
 # beulogue releases
 
+## [1.13.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-1.13.3)
+
+- :gift: add list of available languages for each page (also in list).
+
 ## [1.8.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-1.8.3)
 
-- :bug: fix dailymotion shortcode (sorry ^^)
-- :gift: add vimeo shortcode
+- :bug: fix dailymotion shortcode (sorry ^^).
+- :gift: add vimeo shortcode.
 
 ## [1.5.2](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-1.5.2)
 
-- :bug: fix shortcode id regex
+- :bug: fix shortcode id regex.
 
 ## [1.5.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-1.5.1)
 
