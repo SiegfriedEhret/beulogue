@@ -6,9 +6,9 @@
 
 ### Download binaries
 
-- Windows: :x:
-- MacOS: :x:
 - Linux: :white_check_mark:
+- MacOS: :construction: (MacOS versions will always come later than the Linux one)
+- Windows: :x:
 
 Go to the [release page](https://github.com/SiegfriedEhret/beulogue/releases) !
 
@@ -92,6 +92,7 @@ date: 2019-05-07
 description: A small description
 tags:
 - news
+orphan: false
 ---
 
 # My content...
@@ -105,6 +106,7 @@ The following properties are all mandatory:
 
 The following properties are optional:
 
+- **orphan** (`true` or `false`): set to `true` and your page will be rendered but not included in the list templates.
 - **tags** (array of string): some tags for your content.
 
 #### Shortcodes
@@ -221,7 +223,7 @@ And maybe at some point:
 - [x] tags (in front matter)
 - [x] shortcodes
 - [x] links between languages
-- [ ] orphan pages
+- [x] orphan pages
 - [ ] tags (pages)
 - [ ] drafts
 
