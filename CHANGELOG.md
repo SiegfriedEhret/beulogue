@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [2.1.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.1.0)
+
+- :gift: add `orphan` to front-matter.
+
 ## [2.0.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.0.0)
 
 - :boom: Actually make list of available languages work, so it breaks 1.13.3...
