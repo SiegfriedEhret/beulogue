@@ -33,14 +33,19 @@ git-version: ## Commit shards with new version
 install: ## Install dependencies for beulogue
 	shards install
 
-check-env:
+check-env: ## Check that VERSION is present
 ifndef VERSION
 	$(error VERSION is undefined (make release VERSION=x.x.x))
 endif
 
-release-archive: build
+check-target: ## Check that TARGET is present
+ifndef TARGET
+	$(error TARGET is undefined (make release-archive TARGET=linux))
+endif
+
+release-archive: build check-target ## Make a tar.gz archive from the binary
 	cd bin ;\
-	tar czf beulogue-linux.tar.gz beulogue
+	tar czf beulogue-$(TARGET).tar.gz beulogue
 
 release: git-src git-test-site git-changelog git-readme git-version release-archive git-push ## Release beulogue
 
