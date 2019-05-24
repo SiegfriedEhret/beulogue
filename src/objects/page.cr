@@ -7,6 +7,7 @@ module Beulogue
     getter description : String
     getter language : String
     getter multilang : Array(Hash(String, String))
+    getter orphan : Bool
     getter tags : Array(String)
     getter title : String
     getter url : String
@@ -16,6 +17,7 @@ module Beulogue
       @description = content.frontMatter.description
       @language = content.lang
       @multilang = multilang
+      @orphan = content.frontMatter.orphan || false
       @tags = content.frontMatter.tags || Array(String).new
       @title = content.frontMatter.title
       @url = content.toURL

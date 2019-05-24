@@ -23,7 +23,7 @@ module Beulogue
             Beulogue::Pipeline::Page.write(@renderer, content, BeulogueMultilang.new)
           end
 
-          Beulogue::Pipeline::List.write(@renderer, @config, pages, "")
+          Beulogue::Pipeline::List.write(@renderer, @config, pages.select { |p| !p.orphan }, "")
           Beulogue::Pipeline::RSS.write(@config, pages, "")
         end
 
@@ -59,7 +59,7 @@ module Beulogue
               Beulogue::Pipeline::Page.write(@renderer, content, multiLang)
             end
 
-            Beulogue::Pipeline::List.write(@renderer, @config, pages, lang) # TODO multilang
+            Beulogue::Pipeline::List.write(@renderer, @config, pages.select { |p| !p.orphan }, lang)
             Beulogue::Pipeline::RSS.write(@config, pages, lang)
           end
 
