@@ -2,9 +2,9 @@
 
 > `beulogue` [\bøloɡ\]: french for blog.
 
-## Installation
+# Installation
 
-### Download binaries
+## Download binaries
 
 - Linux: :white_check_mark:
 - MacOS: :construction: (MacOS versions will always come later than the Linux one)
@@ -12,14 +12,14 @@
 
 Go to the [release page](https://github.com/SiegfriedEhret/beulogue/releases) !
 
-### Build from source
+## Build from source
 
 - Clone this repository.
 - Install [Crystal](https://crystal-lang.org/) and [Shards](https://github.com/crystal-lang/shards).
 - Run `make install` then `make`.
 - The `beulogue` binary will be in the `bin/` folder.
 
-## Usage
+# Usage
 
 Add `beulogue` to your path and run `beulogue` !
 
@@ -29,7 +29,7 @@ Here are the possible commands:
 - `beulogue help` to show the help.
 - `beulogue version` to the the version. Amazing !
 
-### Structure
+## Structure
 
 Your website must be something like:
 
@@ -53,7 +53,7 @@ my-website
 - `content/` is the folder with all your pages.
 - `templates/` is the folder for your templates.
 
-### Configuration
+## Configuration
 
 The configuration file for your site must be `beulogue.yml`.
 
@@ -79,11 +79,11 @@ The optional ones are:
 - **sortPagesBy** (string): `date` or `weight`, set the property to sort the pages (default: `date`).
 - **sortPagesOrder** (string): `asc` or `desc`, set the sorting order (default: `desc`).
 
-### Content
+## Content
 
 Content items must be in the `content` folder of your site. The expected format is markdown.
 
-#### Front-matter
+### Front-matter
 
 You can use front-matter, like that:
 
@@ -113,7 +113,7 @@ The following properties are optional:
 - **tags** (array of string): some tags for your content.
 - **weight** (float number): weight of the page, used for sorting. Default is `1.0`.
 
-#### Shortcodes
+### Shortcodes
 
 Shortcodes are small things that you can use in your contents.
 
@@ -121,7 +121,7 @@ Shortcodes are small things that you can use in your contents.
 - **vimeo**: use `{{>vimeo 12345}}` to embed a [Vimeo](https://www.vimeo.com/) video.
 - **YouTube**: use `{{>youtube 12345}}` to embed a [YouTube](https://www.youtube.com/) video.
 
-### Templating
+## Templating
 
 You have 2 html files to provide, they must be in the `templates` folder of your site:
 
@@ -130,7 +130,7 @@ You have 2 html files to provide, they must be in the `templates` folder of your
 
 The templating engine is [mustache](https://mustache.github.io/).
 
-#### Mustache 101
+### Mustache 101
 
 If you have a variable `title`, use `{{title}}` in your template to display if.
 
@@ -154,7 +154,7 @@ If you want a conditional rendering for `title` whether it has or not a value, u
 
 Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more info.
 
-#### Variables for the page template
+### Variables for the page template
 
 - `title`: the title of the page, from your content front matter.
 - `date`: the date of your content, from its front matter
@@ -173,7 +173,7 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 
 Note for `multilang`, you can use:
 
-#### Variables for the list template
+### Variables for the list template
 
 - `pages`: a list with page elements. See previous section for details, `content` is not present though.
 - `language`: the language of the page.
@@ -183,7 +183,7 @@ Note for `multilang`, you can use:
 - `beulogue`
 	- `cwd`: the current working directory.
 
-### Multilingual site
+## Multilingual site
 
 As explained in the Configuration part, you need at least one language, useful for the `lang` attribute for example.
 
@@ -208,7 +208,7 @@ Structure:
 - If you have one language: everything will start the root of the `public` folder. A `feed.xml` file will be created in that folder.
 - If you have multiple languages: each language will start in the `public/<language>/` folder. A default `index.html` file will be at the root of the `public` folder, redirecting to the default language. A  `feed.xml` file will be created for each language.
 
-## Notes
+# Notes
 
 `beulogue` is an experiment to discover the [Crystal](https://crystal-lang.org/) programming language, 2 years after playing with [the same concept with Node.js](https://www.npmjs.com/package/beulogue).
 
@@ -239,13 +239,14 @@ And absolutely won't:
 
 - [ ] livereload
 
+
+# Development
+
 ## License
 
 Licensed under the [GPLv3 license](./LICENSE).
 
-## Development
-
-Check the [contributing](./CONTRIBUTING.md) document for some info.
+## Versioning
 
 `beulogue` follows my own FibVer (Fibonacci Versioning):
 
@@ -255,7 +256,9 @@ Check the [contributing](./CONTRIBUTING.md) document for some info.
 
 I'll spec that one day...
 
-### Contributing
+## Contributing
+
+Check the [contributing](./CONTRIBUTING.md) document for some info.
 
 1. Fork it (https://github.com/SiegfriedEhret/beulogue/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -263,6 +266,6 @@ I'll spec that one day...
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-### Contributors
+## Contributors
 
 - [Siegfried Ehret](https://github.com/SiegfriedEhret) - creator and maintainer

@@ -1,0 +1,8 @@
+base: https://beulogue.github.io
+title: Beulogue - Documentation
+languages:
+- en
+- fr
+rssFilename: index.xml
+sortPagesBy: weight
+sortPagesOrder: asc

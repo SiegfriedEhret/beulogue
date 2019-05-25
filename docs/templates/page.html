@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	{{>head}}
+
+	<body>
+		<div id="container">
+			{{>header}}
+
+			<main id="main">
+				<section class="page">
+					<h1>
+						{{title}}
+						<span class="nav-lang">
+							{{#multilang}}
+							<a href="{{url}}">{{language}}</a>
+							{{/multilang}}
+						</span>
+					</h1>
+
+					{{{content}}}
+				</section>
+
+				{{>footer}}
+			</main>
+		</div>
+	</body>
+</html>

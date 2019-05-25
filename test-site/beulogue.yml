@@ -1,7 +1,0 @@
-base: https://ehret.me
-title: My site
-languages:
-- en
-- fr
-- jp
-rssFilename: index.xml

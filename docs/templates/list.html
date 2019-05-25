@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	{{>head}}
+
+	<body>
+		<div id="container">
+			{{>header}}
+
+			<main id="main">
+				<section class="list">
+					<ul>
+						{{#pages}}
+						<li>
+							<a href="{{url}}">{{title}}</a>
+							{{#tags}}
+							<p>{{.}}</p>
+							{{/tags}}
+						</li>
+						{{/pages}}
+					</ul>
+				</section>
+
+				{{>footer}}
+			</main>
+		</div>
+	</body>
+</html>
