@@ -3,7 +3,7 @@ all: build
 build: ## Build beulogue
 	shards build
 
-build-and-run: build run ## Build and run in test-site
+build-and-run: build run ## Build and run in docs
 
 git-changelog: ## Commit changelog
 	git add CHANGELOG.md ;\
@@ -22,8 +22,8 @@ git-push: check-env ## Push all the things
 	git tag release-$(VERSION) ;\
 	git push --tags
 
-git-test-site: ## Commit test-site
-	git add test-site ;\
+git-docs: ## Commit docs
+	git add docs ;\
 	git commit -m ":gift: update test site"
 
 git-version: ## Commit shards with new version
@@ -47,10 +47,10 @@ release-archive: build check-target ## Make a tar.gz archive from the binary
 	cd bin ;\
 	tar czf beulogue-$(TARGET).tar.gz beulogue
 
-release: git-src git-test-site git-changelog git-readme git-version release-archive git-push ## Release beulogue
+release: git-src git-docs git-changelog git-readme git-version release-archive git-push ## Release beulogue
 
-run: ## Run in test-site
-	cd test-site;\
+run: ## Run in docs
+	cd docs;\
 	beulogue
 
 update: ## Update dependencies
