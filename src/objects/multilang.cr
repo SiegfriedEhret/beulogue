@@ -15,14 +15,17 @@ module Beulogue
     end
 
     def get(url : String)
-      result = Array(String)
-      result = @data[url].map do |language, url|
-        model = {
-          "language" => language,
-          "url"      => url,
-        }
+      result = Array(Hash(String, String)).new
 
-        model
+      if @data[url]?
+        result = @data[url].map do |language, url|
+          model = {
+            "language" => language,
+            "url"      => url,
+          }
+
+          model
+        end
       end
 
       result

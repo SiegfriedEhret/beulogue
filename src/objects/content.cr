@@ -37,11 +37,11 @@ module Beulogue
 
       @base = fromPath.to_s.sub(suffix, "")
 
-      tempToPath = fromPath.to_s.sub("/content/", "/public/#{lang}/")
+      tempToPath = fromPath.to_s.sub("/content/", "/public/#{lang}/").gsub("//", "/")
 
       @toPath = Path[tempToPath.sub(suffix, ".html")]
 
-      @toURL = @toPath.to_s.gsub("//", "/").sub(cwd.join("public").to_s, "")
+      @toURL = @toPath.to_s.sub(cwd.join("public").to_s, "")
     end
   end
 end
