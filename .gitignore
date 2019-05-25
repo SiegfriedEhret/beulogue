@@ -1,7 +1,6 @@
-/docs/
 /lib/
 /bin/
 /.shards/
 *.dwarf
 
-test-site/public/
+docs/public/
