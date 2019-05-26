@@ -6,7 +6,7 @@ module Beulogue
     def to_hash
       model = {
         "language" => @lang,
-        "pages"    => @pages.sort_by { |p| p.date }.reverse.map { |p| p.to_hash },
+        "pages"    => @pages.sort_by { |p| p.date }.reverse.map { |p| p.to_hash.reject("content") },
       }
 
       model
