@@ -171,7 +171,7 @@ Note for `multilang`, you can use:
 
 #### Variables for the list template
 
-- `pages`: a list with page elements (see previous section).
+- `pages`: a list with page elements. See previous section for details, `content` is not present though.
 - `language`: the language of the page.
 - `site`
 	- `title`: the title of the site.
