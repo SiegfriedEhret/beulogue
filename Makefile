@@ -5,7 +5,7 @@ build: ## Build beulogue
 
 build-and-run: build run ## Build and run in docs
 
-deploy: ## Deploy using Apex Up
+deploy: run ## Deploy using Apex Up
 	up deploy production
 
 git-changelog: ## Commit changelog
