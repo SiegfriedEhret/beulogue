@@ -75,7 +75,9 @@ The mandatory possible keys and values are:
 
 The optional ones are:
 
-- **rssFilename** (string): the name for the rss feed (default: `feed.xml`)
+- **rssFilename** (string): the name for the rss feed (default: `feed.xml`)/
+- **sortPagesBy** (string): `date` or `weight`, set the property to sort the pages (default: `date`).
+- **sortPagesOrder** (string): `asc` or `desc`, set the sorting order (default: `desc`).
 
 ### Content
 
@@ -93,6 +95,7 @@ description: A small description
 tags:
 - news
 orphan: false
+weight: 1.0
 ---
 
 # My content...
@@ -108,6 +111,7 @@ The following properties are optional:
 
 - **orphan** (`true` or `false`): set to `true` and your page will be rendered but not included in the list templates.
 - **tags** (array of string): some tags for your content.
+- **weight** (float number): weight of the page, used for sorting. Default is `1.0`.
 
 #### Shortcodes
 
