@@ -1,5 +1,10 @@
 # beulogue releases
 
+
+## [2.1.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.1.1)
+
+- :bug: fix an issue with single language site
+
 ## [2.1.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.1.0)
 
 - :gift: add `orphan` to front-matter.
