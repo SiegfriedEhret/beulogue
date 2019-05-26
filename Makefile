@@ -50,8 +50,9 @@ release-archive: build check-target ## Make a tar.gz archive from the binary
 release: git-src git-docs git-changelog git-readme git-version release-archive git-push ## Release beulogue
 
 run: ## Run in docs
-	cd docs;\
-	beulogue
+	cd docs ;\
+	beulogue ;\
+	cp templates/*.css public/
 
 update: ## Update dependencies
 	shards update
