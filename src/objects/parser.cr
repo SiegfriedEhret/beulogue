@@ -48,12 +48,12 @@ module Beulogue
   class BeulogueParser
     def self.parse(content : String)
       fs = BeulogueParserFS.new
-      fs.register "test", Crustache.parse content
+      fs.register "beulogue", Crustache.parse content
 
       engine = Crustache::Engine.new fs
       output = IO::Memory.new
 
-      engine.render("test", nil)
+      engine.render("beulogue", nil)
     end
   end
 end
