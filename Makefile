@@ -27,7 +27,7 @@ git-docs: ## Commit docs
 	git commit -m ":gift: update test site"
 
 git-version: ## Commit shards with new version
-	git add shards.yml ;\
+	git add shard.yml ;\
 	git commit -m ":arrow_up: bump version"
 
 install: ## Install dependencies for beulogue
