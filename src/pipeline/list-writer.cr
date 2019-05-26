@@ -6,7 +6,7 @@ module Beulogue
 
         if !targetDir.nil?
           File.write(Path[targetDir].join(lang, "index.html").to_s,
-            HTML.unescape(renderer.renderList(BeulogueList.new(pages, lang).to_hash)))
+            HTML.unescape(renderer.renderList(BeulogueList.new(pages, lang, config).to_hash)))
         end
       end
     end

@@ -5,7 +5,8 @@ module Beulogue
       description: String,
       title: String,
       tags: Array(String)?,
-      orphan: Bool?
+      orphan: Bool?,
+      weight: Float64?,
     )
   end
 end

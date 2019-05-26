@@ -11,6 +11,7 @@ module Beulogue
     getter tags : Array(String)
     getter title : String
     getter url : String
+    getter weight : Float64
 
     def initialize(content : BeulogueContent, multilang : Array(Hash(String, String)))
       @date = content.frontMatter.date
@@ -21,6 +22,7 @@ module Beulogue
       @tags = content.frontMatter.tags || Array(String).new
       @title = content.frontMatter.title
       @url = content.toURL
+      @weight = content.frontMatter.weight || 1.0
 
       @content = BeulogueParser.parse(content.content) || ""
     end

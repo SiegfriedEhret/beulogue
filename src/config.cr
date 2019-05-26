@@ -16,6 +16,18 @@ module Beulogue
       config.cwd = cwd
       config.targetDir = cwdPath.join("public").to_s
 
+      if config.sortPagesBy && config.sortPagesBy == "weight"
+        config.sortBy = PagesSortBy::Weight
+      else
+        config.sortBy = PagesSortBy::Date
+      end
+
+      if config.sortPagesOrder && config.sortPagesOrder == "asc"
+        config.sortOrder = PagesSortOrder::Asc
+      else
+        config.sortOrder = PagesSortOrder::Desc
+      end
+
       if !config.rssFilename
         config.rssFilename = "feed.xml"
       end
