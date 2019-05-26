@@ -5,6 +5,9 @@ build: ## Build beulogue
 
 build-and-run: build run ## Build and run in docs
 
+deploy: ## Deploy using Apex Up
+	up deploy production
+
 git-changelog: ## Commit changelog
 	git add CHANGELOG.md ;\
 	git commit -m ":memo: update changelog"

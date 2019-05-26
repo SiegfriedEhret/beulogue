@@ -1,0 +1,14 @@
+{
+  "name": "beulogue",
+  "profile": "beulogue",
+  "type": "static",
+  "regions": ["eu-central-1"],
+  "static": {
+    "dir": "docs/public/"
+  },
+  "stages": {
+    "production": {
+      "domain": "beulogue.ehret.me"
+    }
+  }
+}
