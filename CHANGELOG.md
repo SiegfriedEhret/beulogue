@@ -1,9 +1,13 @@
 # beulogue releases
 
+## [2.2.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.1.1)
+
+- :gift: allow to sort pages by date or weight.
+- :gift: allow to set the order (asc / desc).
 
 ## [2.1.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.1.1)
 
-- :bug: fix an issue with single language site
+- :bug: fix an issue with single language site.
 
 ## [2.1.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.1.0)
 
