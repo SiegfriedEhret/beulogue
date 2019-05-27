@@ -1,5 +1,5 @@
 name: beulogue
-version: 2.2.1
+version: 2.3.1
 
 authors:
   - Siegfried Ehret <siegfried@ehret.me>
@@ -16,3 +16,6 @@ dependencies:
   crustache:
     github: MakeNowJust/crustache
     version: 2.4.0
+  emoji:
+    github: veelenga/emoji.cr
+    branch: 0.3.1
