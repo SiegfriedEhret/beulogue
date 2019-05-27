@@ -3,7 +3,7 @@ require "./objects/config"
 
 module Beulogue
   DEFAULT_COMMAND = "build"
-  VERSION         = "2.2.1"
+  VERSION         = "2.3.1"
 
   module Conf
     def self.load(cwd : String)
