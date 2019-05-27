@@ -2,7 +2,7 @@
 title: Templating
 date: 2019-05-25
 description: Templating with mustache
-weight: 2.3
+weight: 2.4
 ---
 
 You have 2 html files to provide, they must be in the `templates` folder of your site:

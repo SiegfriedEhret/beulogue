@@ -2,7 +2,7 @@
 title: Multilingual site
 date: 2019-05-25
 description: How to make a multilingual site
-weight: 2.4
+weight: 2.5
 ---
 
 As explained in the Configuration part, you need at least one language, useful for the `lang` attribute for example.

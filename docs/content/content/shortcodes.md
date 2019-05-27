@@ -13,4 +13,4 @@ Shortcodes are small things that you can use in your contents.
 - **YouTube**: use `{{>youtube 12345}}` to embed a [YouTube](https://www.youtube.com/) video.
 <%={{ }}=%>
 
-[⬅️ front matter](/en/content/front-matter.html) || [templating ➡️](/en/content/templating.html)
+[⬅️ front matter](/en/content/front-matter.html) || [emojis ➡️](/en/content/emojis.html)
