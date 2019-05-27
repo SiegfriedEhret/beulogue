@@ -13,4 +13,4 @@ Here are the possible commands:
 - `beulogue help` to show the help.
 - `beulogue version` to the the version. Amazing !
 
-[⬅️ install](/en/install/index.html) || [structure ➡️](/en/usage/structure.html)
+[⬅️ install](/en/usage/install.html) || [structure ➡️](/en/usage/structure.html)

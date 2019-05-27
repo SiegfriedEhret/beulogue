@@ -20,4 +20,4 @@ Go to the [release page](https://github.com/SiegfriedEhret/beulogue/releases) !
 - Run `make install` then `make`.
 - The `beulogue` binary will be in the `bin/` folder.
 
-[⬅️ usage](/en/usage/index.html) || [usage ➡️](/en/usage/usage.html)
+[⬅️ intro](/en/usage/index.html) || [usage ➡️](/en/usage/usage.html)

@@ -89,9 +89,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 pre {
-  border-left: 2px solid var(--color-accent);
   padding: 1rem;
+  border-left: 2px solid var(--color-accent);
   white-space: pre-wrap;
+  line-height: 1;
 }
 
 pre, code {
