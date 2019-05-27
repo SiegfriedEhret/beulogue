@@ -71,6 +71,16 @@ ul {
   grid-area: main;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  display: block;
+  background-image: linear-gradient(-45deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  word-break: normal !important;
+}
+
 @media screen and (min-width: 800px) {
   #container {
     width: 700px;
@@ -82,4 +92,8 @@ pre {
   border-left: 2px solid var(--color-accent);
   padding: 1rem;
   white-space: pre-wrap;
+}
+
+pre, code {
+  background: #ffd6ea;
 }

@@ -14,6 +14,8 @@ The templating engine is [mustache](https://mustache.github.io/).
 
 ### Mustache 101
 
+{{=<% %>=}}
+
 If you have a variable `title`, use `{{title}}` in your template to display if.
 
 > All variables are HTML escaped by default. If you want to return unescaped HTML, use the triple mustache: {{{name}}}.
@@ -22,7 +24,7 @@ If you have a variable `pages` which is a list of objects with a `title` propert
 
 ```
 {{#pages}}
-  <p>{{title}}</p>
+  {{title}}
 {{/pages}}
 ```
 
@@ -35,6 +37,8 @@ If you want a conditional rendering for `title` whether it has or not a value, u
 ```
 
 Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more info.
+
+<%={{ }}=%>
 
 ### Variables for the page template
 
