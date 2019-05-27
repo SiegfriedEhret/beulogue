@@ -1,6 +1,10 @@
 # beulogue releases
 
-## [2.2.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.1.1)
+## [2.3.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.3.1)
+
+- :gift: allow emoji using [emoji.cr](https://github.com/veelenga/emoji.cr)
+
+## [2.2.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.2.1)
 
 - :gift: allow to sort pages by date or weight.
 - :gift: allow to set the order (asc / desc).
