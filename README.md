@@ -121,6 +121,12 @@ Shortcodes are small things that you can use in your contents.
 - **vimeo**: use `{{>vimeo 12345}}` to embed a [Vimeo](https://www.vimeo.com/) video.
 - **YouTube**: use `{{>youtube 12345}}` to embed a [YouTube](https://www.youtube.com/) video.
 
+### Emoji
+
+You can you emojis easily using `:smile:`, which renders as: :smile: !
+
+The full list is [here](https://github.com/veelenga/emoji.cr/blob/master/src/emoji/emoji_map.cr).
+
 ## Templating
 
 You have 2 html files to provide, they must be in the `templates` folder of your site:
