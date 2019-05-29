@@ -6,5 +6,5 @@ shards:
 
   emoji:
     github: veelenga/emoji.cr
-    commit: 
+    commit: 808f66db7078200a69a1a01998b8a12cc802764b
 
