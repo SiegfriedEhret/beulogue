@@ -1,5 +1,10 @@
 # beulogue releases
 
+## [2.5.2](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.5.2)
+
+- :bug: fix bug for shortcodes
+- :gift: add GitHub Gist to shortcodes
+
 ## [2.3.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.3.1)
 
 - :gift: allow emoji using [emoji.cr](https://github.com/veelenga/emoji.cr)
