@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [2.5.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.5.3)
+
+- :bug: fix version number
+
 ## [2.5.2](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.5.2)
 
 - :bug: fix bug for shortcodes
