@@ -69,4 +69,6 @@ Note for `multilang`, you can use:
 - `beulogue`
 	- `cwd`: the current working directory.
 
+If you use the `_index.md` or `_index.LANG.md` feature to include content in your list template, you'll get a merge of the page and list variables.
+
 [⬅️ shortcodes](/en/content/shortcodes.html) || [multilingual ➡️](/en/content/multilingual.html)

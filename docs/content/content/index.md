@@ -7,4 +7,8 @@ weight: 2.0
 
 Content items must be in the `content` folder of your site. The expected format is markdown.
 
+The output files will have the same name as your markdown file (ending with `.html` instead of `.md`, of course).
+
+You can inject content in your list template using a `_index.md` (for your content language) or `_index.LANG.md` for a given `LANG` (example: `_index.fr.md` for french).
+
 [⬅️ configuration](/en/usage/configuration.html) || [front matter ➡️](/en/content/front-matter.html)
