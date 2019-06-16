@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [2.13.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.13.3)
+
+- :gift: allow to reference a content
+
 ## [2.8.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.8.3)
 
 - :gift: allow to use _index.md & _index.LANG.md to add content to the list pages.
