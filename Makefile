@@ -8,30 +8,10 @@ build-and-run: build run ## Build and run in docs
 deploy: run ## Deploy using Apex Up
 	up deploy production
 
-git-changelog: ## Commit changelog
-	git add CHANGELOG.md ;\
-	git commit -m ":memo: update changelog"
-
-git-readme: ## Commit readme
-	git add README.md ;\
-	git commit -m ":memo: update readme"
-
-git-src: ## Commit src
-	git add src ;\
-	git commit -m ":gift: update code"
-
 git-push: check-env ## Push all the things
 	git push ;\
 	git tag release-$(VERSION) ;\
 	git push --tags
-
-git-docs: ## Commit docs
-	git add docs ;\
-	git commit -m ":gift: update test site"
-
-git-version: ## Commit shards with new version
-	git add shard.yml ;\
-	git commit -m ":arrow_up: bump version"
 
 install: ## Install dependencies for beulogue
 	shards install
@@ -50,7 +30,7 @@ release-archive: build check-target ## Make a tar.gz archive from the binary
 	cd bin ;\
 	tar czf beulogue-$(TARGET).tar.gz beulogue
 
-release: git-src git-docs git-changelog git-readme git-version release-archive git-push ## Release beulogue
+release: release-archive git-push ## Release beulogue
 
 run: ## Run in docs
 	cd docs ;\
