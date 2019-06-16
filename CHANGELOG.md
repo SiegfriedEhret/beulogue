@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [2.21.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.21.3)
+
+:gift: Add contentPath to page model
+
 ## [2.13.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.13.3)
 
 - :gift: allow to reference a content
