@@ -83,6 +83,10 @@ The optional ones are:
 
 Content items must be in the `content` folder of your site. The expected format is markdown.
 
+The output files will have the same name as your markdown file (ending with `.html` instead of `.md`, of course).
+
+You can inject content in your list template using a `_index.md` (for your content language) or `_index.LANG.md` for a given `LANG` (example: `_index.fr.md` for french).
+
 ### Front-matter
 
 You can use front-matter, like that:
@@ -189,6 +193,8 @@ Note for `multilang`, you can use:
 	- `languages`: a list of available languages for the site.
 - `beulogue`
 	- `cwd`: the current working directory.
+
+If you use the `_index.md` or `_index.LANG.md` feature to include content in your list template, you'll get a merge of the page and list variables.
 
 ## Multilingual site
 
