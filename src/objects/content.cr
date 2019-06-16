@@ -3,11 +3,12 @@ require "emoji"
 module Beulogue
   class BeulogueContent
     getter base : String
+    getter content : String
+    getter contentPath : String
     getter cwd : Path
     getter fromPath : Path
     getter toPath : Path
     getter toURL : String
-    getter content : String
     getter lang : String
     getter frontMatter : BeulogueFrontMatter
 
@@ -37,6 +38,8 @@ module Beulogue
       if fromPath.to_s.ends_with?(".#{lang}#{suffix}")
         suffix = ".#{lang}#{suffix}"
       end
+
+      @contentPath = fromPath.to_s.sub(@cwd.join("content").to_s, "")
 
       @base = fromPath.to_s.sub(suffix, "")
 

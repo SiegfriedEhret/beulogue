@@ -3,6 +3,7 @@ require "./content"
 module Beulogue
   class BeuloguePage
     getter content : String
+    getter contentPath : String
     getter date : Time
     getter description : String
     getter language : String
@@ -14,6 +15,7 @@ module Beulogue
     getter weight : Float64
 
     def initialize(content : BeulogueContent, multilang : Array(Hash(String, String)))
+      @contentPath = content.contentPath
       @date = content.frontMatter.date
       @description = content.frontMatter.description
       @language = content.lang
@@ -30,6 +32,7 @@ module Beulogue
     def to_hash
       model = {
         "content"       => @content,
+        "contentPath"   => @contentPath,
         "date"          => @date,
         "dateFormatted" => @date.to_s("%F"),
         "description"   => @description,
