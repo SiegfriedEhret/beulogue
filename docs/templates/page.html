@@ -3,25 +3,23 @@
 	{{>head}}
 
 	<body>
-		<div id="container">
-			{{>header}}
+		{{>header}}
 
-			<main id="main">
-				<section class="page">
-					<h1>
-						{{title}}
-						<span class="nav-lang">
-							{{#multilang}}
-							<a href="{{url}}">{{language}}</a>
-							{{/multilang}}
-						</span>
-					</h1>
+		<main id="main">
+			<section class="page">
+				<h1>
+					{{title}}
+					<span class="nav-lang">
+						{{#multilang}}
+						<a href="{{url}}">{{language}}</a>
+						{{/multilang}}
+					</span>
+				</h1>
 
-					{{{content}}}
-				</section>
+				{{{content}}}
+			</section>
+		</main>
 
-				{{>footer}}
-			</main>
-		</div>
+		{{>footer}}
 	</body>
 </html>

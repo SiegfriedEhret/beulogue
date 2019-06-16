@@ -3,31 +3,29 @@
 	{{>head}}
 
 	<body>
-		<div id="container">
-			{{>header}}
+		{{>header}}
 
-			<main id="main">
-				<section class="list">
-					<h1>
-						{{title}}
-					</h1>
+		<main id="main">
+			<section class="list">
+				<h1>
+					{{title}}
+				</h1>
 
-					{{{content}}}
+				{{{content}}}
 
-					<ul>
-						{{#pages}}
-						<li>
-							<a href="{{url}}">{{title}}</a>
-							{{#tags}}
-							<p>{{.}}</p>
-							{{/tags}}
-						</li>
-						{{/pages}}
-					</ul>
-				</section>
+				<ul>
+					{{#pages}}
+					<li>
+						<a href="{{url}}">{{title}}</a>
+						{{#tags}}
+						<p>{{.}}</p>
+						{{/tags}}
+					</li>
+					{{/pages}}
+				</ul>
+			</section>
+		</main>
 
-				{{>footer}}
-			</main>
-		</div>
+		{{>footer}}
 	</body>
 </html>
