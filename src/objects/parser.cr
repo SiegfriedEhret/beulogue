@@ -1,11 +1,48 @@
 require "crustache"
+require "./content"
 
-class BeulogueParserFS < Crustache::HashFileSystem
-  def load(name)
-    if /\Adailymotion\s+([\w\-_]+)\z/ === name
-      id = $1
+module Beulogue
+  class BeulogueParserFS < Crustache::HashFileSystem
+    def setContext(content : BeulogueContent)
+      @content = content
+    end
 
-      html = <<-HTML
+    def load(name)
+      # Internal contents
+
+      if /\Aref\s+(.+)\z/ === name
+        filepath = $1
+
+        content = @content
+        if content.nil?
+          return
+        else
+          fromPath = content.fromPath
+          url = content.toURL
+          realFilepath = fromPath.parent.join(filepath).normalize
+          lang = /^.*\.([\w\-]+)\.md$/.match(realFilepath.to_s).try &.[1] || ""
+
+          puts "><> #{realFilepath} #{lang}"
+          if File.exists?(realFilepath)
+            refContent = BeulogueContent.new(realFilepath, lang, content.cwd)
+            model = BeuloguePage.new(refContent, Array(Hash(String, String)).new)
+            puts "<>< #{model.url} #{model.title}"
+
+            html = <<-HTML
+            <a href="#{model.url}">#{model.title}</a>
+            HTML
+          else
+            Beulogue.logger.warn("Failed to read referenced content: #{realFilepath}")
+          end
+        end
+      end
+
+      # External contents
+
+      if /\Adailymotion\s+([\w\-_]+)\z/ === name
+        id = $1
+
+        html = <<-HTML
       <iframe
         width="560" height="315"
         src="https://www.dailymotion.com/embed/video/#{id}"
@@ -13,33 +50,33 @@ class BeulogueParserFS < Crustache::HashFileSystem
         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen ></iframe>
       HTML
-    end
+      end
 
-    if /\Agist\s+([\w\-_]+)\s+([\w\-_]+)\z/ === name
-      user = $1
-      id = $2
+      if /\Agist\s+([\w\-_]+)\s+([\w\-_]+)\z/ === name
+        user = $1
+        id = $2
 
-      html = <<-HTML
+        html = <<-HTML
       <script src="https://gist.github.com/#{user}/#{id}.js"></script>
       HTML
-    end
+      end
 
-    if /\Avimeo\s+([\w\-_]+)\z/ === name
-      id = $1
+      if /\Avimeo\s+([\w\-_]+)\z/ === name
+        id = $1
 
-      html = <<-HTML
+        html = <<-HTML
       <iframe src="https://player.vimeo.com/video/#{id}"
         width="640" height="360"
         frameborder="0"
         allow="fullscreen"
         allowfullscreen></iframe>
       HTML
-    end
+      end
 
-    if /\Ayoutube\s+([\w\-_]+)\z/ === name
-      id = $1
+      if /\Ayoutube\s+([\w\-_]+)\z/ === name
+        id = $1
 
-      html = <<-HTML
+        html = <<-HTML
       <iframe
         width="560" height="315"
         src="https://www.youtube.com/embed/#{id}"
@@ -47,21 +84,21 @@ class BeulogueParserFS < Crustache::HashFileSystem
         allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
       HTML
-    end
+      end
 
-    if html
-      return Crustache.parse html
-    end
+      if html
+        return Crustache.parse html
+      end
 
-    super
+      super
+    end
   end
-end
 
-module Beulogue
   class BeulogueParser
-    def self.parse(content : String)
+    def self.parse(bc : BeulogueContent)
       fs = BeulogueParserFS.new
-      fs.register "beulogue", Crustache.parse content
+      fs.setContext bc
+      fs.register "beulogue", Crustache.parse bc.content
 
       engine = Crustache::Engine.new fs
       output = IO::Memory.new

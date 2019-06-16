@@ -3,6 +3,7 @@ require "emoji"
 module Beulogue
   class BeulogueContent
     getter base : String
+    getter cwd : Path
     getter fromPath : Path
     getter toPath : Path
     getter toURL : String
@@ -10,7 +11,7 @@ module Beulogue
     getter lang : String
     getter frontMatter : BeulogueFrontMatter
 
-    def initialize(@fromPath : Path, lang : String, cwd : Path)
+    def initialize(@fromPath : Path, lang : String, @cwd : Path)
       frontMatterDelimiter = "---"
       frontMatterDelimiterCount = 0
       frontMatter = ""
@@ -33,8 +34,8 @@ module Beulogue
       @lang = lang
 
       suffix = ".md"
-      if fromPath.to_s.ends_with?(".#{lang}.md")
-        suffix = ".#{lang}.md"
+      if fromPath.to_s.ends_with?(".#{lang}#{suffix}")
+        suffix = ".#{lang}#{suffix}"
       end
 
       @base = fromPath.to_s.sub(suffix, "")
@@ -43,7 +44,7 @@ module Beulogue
 
       @toPath = Path[tempToPath.sub(suffix, ".html")]
 
-      @toURL = @toPath.to_s.sub(cwd.join("public").to_s, "")
+      @toURL = @toPath.to_s.sub(@cwd.join("public").to_s, "")
     end
   end
 end

@@ -24,7 +24,7 @@ module Beulogue
       @url = content.toURL
       @weight = content.frontMatter.weight || 1.0
 
-      @content = BeulogueParser.parse(content.content) || ""
+      @content = BeulogueParser.parse(content) || ""
     end
 
     def to_hash
