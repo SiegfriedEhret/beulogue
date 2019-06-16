@@ -179,6 +179,7 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 - `date`: the date of your content, from its front matter
 - `dateFormatted`: the same thing formatted as `YYYY-MM-DD`.
 - `content`: your content in html.
+- `contentPath`: the path to your markdown, relative to the `content` folder.
 - `language`: the language of your content.
 - `multilang`: a list of objects with:
 	- `language`: a language (like in your beulogue.yml).
