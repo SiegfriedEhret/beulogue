@@ -1,6 +1,6 @@
 module Beulogue
   class BeulogueList
-    def initialize(@pages : Array(BeuloguePage), @lang : String, @config : BeulogueConfig)
+    def initialize(@pages : Array(BeuloguePage), @lang : String, @config : BeulogueConfig, listContent : BeulogueContent | Nil)
     end
 
     def to_hash

@@ -8,11 +8,13 @@ module Beulogue
         files = [] of Path
 
         d.each_child do |x|
-          currentPath = contentPath.join(x)
-          if File.directory?(currentPath.to_s)
-            files.concat(self.run(currentPath, ""))
-          else
-            files.push(currentPath)
+          if !x.starts_with? "_"
+            currentPath = contentPath.join(x)
+            if File.directory?(currentPath.to_s)
+              files.concat(self.run(currentPath, ""))
+            else
+              files.push(currentPath)
+            end
           end
         end
 
