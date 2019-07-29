@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [2.21.5](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.21.5)
+
+:bug: fix a bug with language for single language beulogues.
+
 ## [2.21.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.21.3)
 
 :gift: Add contentPath to page model
