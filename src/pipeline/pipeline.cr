@@ -19,11 +19,11 @@ module Beulogue
 
         elapsed_time = Time.measure do
           pages = files.map do |f|
-            content = Beulogue::Pipeline::Converter.convert(f, "", @cwd)
+            content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd)
             Beulogue::Pipeline::Page.write(@renderer, content, BeulogueMultilang.new)
           end
 
-          Beulogue::Pipeline::List.write(@renderer, @config, pages.select { |p| !p.orphan }, "")
+          Beulogue::Pipeline::List.write(@renderer, @config, pages.select { |p| !p.orphan }, "", lang)
           Beulogue::Pipeline::RSS.write(@config, pages, "")
         end
 
@@ -41,7 +41,7 @@ module Beulogue
           elapsed_time = Time.measure do
             contents = filesForLanguage.map do |f|
               Beulogue.logger.debug "Processing #{f}"
-              content = Beulogue::Pipeline::Converter.convert(f, lang, @cwd)
+              content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @cwd)
               multiLang.add content.base, lang, content.toURL
               content
             end
@@ -59,7 +59,7 @@ module Beulogue
               Beulogue::Pipeline::Page.write(@renderer, content, multiLang)
             end
 
-            Beulogue::Pipeline::List.write(@renderer, @config, pages.select { |p| !p.orphan }, lang)
+            Beulogue::Pipeline::List.write(@renderer, @config, pages.select { |p| !p.orphan }, lang, lang)
             Beulogue::Pipeline::RSS.write(@config, pages, lang)
           end
 

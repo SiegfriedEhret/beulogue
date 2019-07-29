@@ -22,11 +22,9 @@ module Beulogue
           realFilepath = fromPath.parent.join(filepath).normalize
           lang = /^.*\.([\w\-]+)\.md$/.match(realFilepath.to_s).try &.[1] || ""
 
-          puts "><> #{realFilepath} #{lang}"
           if File.exists?(realFilepath)
-            refContent = BeulogueContent.new(realFilepath, lang, content.cwd)
+            refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.cwd)
             model = BeuloguePage.new(refContent, Array(Hash(String, String)).new)
-            puts "<>< #{model.url} #{model.title}"
 
             html = <<-HTML
             <a href="#{model.url}">#{model.title}</a>

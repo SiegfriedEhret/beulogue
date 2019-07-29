@@ -12,7 +12,7 @@ module Beulogue
     getter lang : String
     getter frontMatter : BeulogueFrontMatter
 
-    def initialize(@fromPath : Path, lang : String, @cwd : Path)
+    def initialize(@fromPath : Path, pathLang : String, contentLang : String, @cwd : Path)
       frontMatterDelimiter = "---"
       frontMatterDelimiterCount = 0
       frontMatter = ""
@@ -32,18 +32,18 @@ module Beulogue
 
       @frontMatter = BeulogueFrontMatter.from_yaml(frontMatter)
       @content = Markdown.to_html(Emoji.emojize(content))
-      @lang = lang
+      @lang = contentLang
 
       suffix = ".md"
-      if fromPath.to_s.ends_with?(".#{lang}#{suffix}")
-        suffix = ".#{lang}#{suffix}"
+      if fromPath.to_s.ends_with?(".#{pathLang}#{suffix}")
+        suffix = ".#{pathLang}#{suffix}"
       end
 
       @contentPath = fromPath.to_s.sub(@cwd.join("content").to_s, "")
 
       @base = fromPath.to_s.sub(suffix, "")
 
-      tempToPath = fromPath.to_s.sub("/content/", "/public/#{lang}/").gsub("//", "/")
+      tempToPath = fromPath.to_s.sub("/content/", "/public/#{pathLang}/").gsub("//", "/")
 
       @toPath = Path[tempToPath.sub(suffix, ".html")]
 
