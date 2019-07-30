@@ -7,7 +7,7 @@ module Beulogue
         defaultLanguage = config.languages[0]
 
         if !cwd.nil?
-          if lang == defaultLanguage
+          if lang == defaultLanguage || lang == ""
             listContentPath = Path[cwd].join("content", "_index.md")
           else
             listContentPath = Path[cwd].join("content", "_index.#{lang}.md")
