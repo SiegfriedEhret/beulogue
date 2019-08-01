@@ -29,6 +29,12 @@ Here are the possible commands:
 - `beulogue help` to show the help.
 - `beulogue version` to the the version. Amazing !
 
+Protip: some basic templates just for you ! Please go to:
+
+- [bitbucket](https://bitbucket.org/siegfriedehret/beulogue-templates/)
+- [codeberg](https://codeberg.org/SiegfriedEhret/beulogue-templates/)
+- [github](https://github.com/SiegfriedEhret/beulogue-templates/)
+
 ## Structure
 
 Your website must be something like:
