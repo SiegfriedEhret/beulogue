@@ -29,6 +29,10 @@ Here are the possible commands:
 - `beulogue help` to show the help.
 - `beulogue version` to the the version. Amazing !
 
+Possible flags:
+
+- `-nb` or `--no-base`: will use an empty `base` instead of the one given in the configuration file.
+
 Protip: some basic templates just for you ! Please go to:
 
 - [bitbucket](https://bitbucket.org/siegfriedehret/beulogue-templates/)
