@@ -19,12 +19,19 @@ module Beulogue
 
         elapsed_time = Time.measure do
           pages = files.map do |f|
-            content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd)
-            Beulogue::Pipeline::Page.write(@renderer, content, BeulogueMultilang.new)
+            begin
+              content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd)
+              Beulogue::Pipeline::Page.write(@renderer, content, BeulogueMultilang.new)
+            rescue ex
+              Beulogue.logger.error "Failed to process #{f}"
+              Beulogue.logger.debug ex.message
+              nil
+            end
           end
 
-          Beulogue::Pipeline::List.write(@renderer, @config, pages.select { |p| !p.orphan }, "", lang)
-          Beulogue::Pipeline::RSS.write(@config, pages, "")
+          realPages = pages.compact
+          Beulogue::Pipeline::List.write(@renderer, @config, realPages.select { |p| !p.orphan }, "", lang)
+          Beulogue::Pipeline::RSS.write(@config, realPages, "")
         end
 
         Beulogue.logger.info "Site for language #{lang} (#{files.size} pages) built in #{elapsed_time.total_milliseconds.round(2)}ms."
@@ -40,12 +47,20 @@ module Beulogue
         filesPerLanguage.each do |lang, filesForLanguage|
           elapsed_time = Time.measure do
             contents = filesForLanguage.map do |f|
-              Beulogue.logger.debug "Processing #{f}"
-              content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @cwd)
-              multiLang.add content.base, lang, content.toURL
+              begin
+                content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @cwd)
+              rescue ex
+                Beulogue.logger.error "Failed to process #{f}"
+                Beulogue.logger.debug ex.message
+              end
+
+              if !content.nil?
+                multiLang.add content.base, lang, content.toURL
+              end
+
               content
             end
-            contentsPerLanguage[lang] = contents
+            contentsPerLanguage[lang] = contents.compact
           end
 
           times[lang] = elapsed_time.total_milliseconds
