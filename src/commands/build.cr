@@ -4,8 +4,8 @@ require "../pipeline/pipeline"
 module Beulogue
   module Commands
     class Build
-      def self.run(path : String)
-        config = Conf.load(path)
+      def self.run(path : String, dev_mode : Bool)
+        config = Conf.load(path, dev_mode)
 
         if config.nil?
           Beulogue.logger.fatal "Failed to read configuration, exiting."

@@ -5,15 +5,17 @@ module Beulogue
   def self.run
     OptionParser.parse! do |opts|
       cwd = Dir.current
+      dev_mode = false
 
       opts.on("-d", "--debug", "Print debug logs.") { self.logger.level = Logger::Severity::DEBUG }
+      opts.on("-nb", "--no-base", "Use en empty base url for development.") { dev_mode = true }
 
       Beulogue.logger.debug "Working directory: #{cwd}"
 
       opts.unknown_args do |args, options|
         case args[0]? || DEFAULT_COMMAND
         when "build"
-          Commands::Build.run(cwd)
+          Commands::Build.run(cwd, dev_mode)
         when "help"
           Commands::Help.run
         when "version"

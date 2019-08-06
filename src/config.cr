@@ -6,7 +6,7 @@ module Beulogue
   VERSION         = {{ `cat #{__DIR__}/../VERSION`.stringify.chomp }}
 
   module Conf
-    def self.load(cwd : String)
+    def self.load(cwd : String, dev_mode : Bool)
       cwdPath = Path[cwd]
       configPath = cwdPath.join("beulogue.yml")
 
@@ -14,6 +14,11 @@ module Beulogue
 
       config = BeulogueConfig.from_yaml(File.read(configPath))
       config.cwd = cwd
+
+      if dev_mode
+        config.mode = Modes::Dev
+      end
+
       config.targetDir = cwdPath.join("public").to_s
 
       if config.sortPagesBy && config.sortPagesBy == "weight"

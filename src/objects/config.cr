@@ -1,4 +1,8 @@
 module Beulogue
+  enum Modes
+    Dev
+  end
+
   enum PagesSortBy
     Date
     Weight
@@ -21,6 +25,7 @@ module Beulogue
 
       # Injected
       cwd: String?,
+      mode: Modes?,
       targetDir: String?,
       sortBy: PagesSortBy?,
       sortOrder: PagesSortOrder?,
