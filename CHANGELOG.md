@@ -1,5 +1,10 @@
 # beulogue releases
 
+## [2.34.8](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.34.8)
+
+- :gift: nicer error message when a parsing error occurs
+- :gift: add a `-nb` or `--no-base` to make development easier (no redirection to the real website)
+
 ## [2.21.8](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.21.8)
 
 :bug: fix list content include for single language beulogues
