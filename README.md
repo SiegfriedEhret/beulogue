@@ -21,19 +21,19 @@ Go to the [release page](https://github.com/SiegfriedEhret/beulogue/releases) !
 
 # Usage
 
-Add `beulogue` to your path and run `beulogue` !
+Add `beulogue` to your `PATH` and run `beulogue` !
 
 Here are the possible commands:
 
 - `beulogue` or `beulogue build` to build the site.
 - `beulogue help` to show the help.
-- `beulogue version` to the the version. Amazing !
+- `beulogue version` to show the the version.
 
 Possible flags:
 
-- `-nb` or `--no-base`: will use an empty `base` instead of the one given in the configuration file.
+- `-nb` or `--no-base`: will use an empty `base` instead of the one given in the configuration file. Useful for development.
 
-Protip: some basic templates just for you ! Please go to:
+Protip: voici quelques kits de démarrage juste pour vous ! Rendez-vous sur l'un de ces miroirs:
 
 - [bitbucket](https://bitbucket.org/siegfriedehret/beulogue-templates/)
 - [codeberg](https://codeberg.org/SiegfriedEhret/beulogue-templates/)
@@ -85,7 +85,7 @@ The mandatory possible keys and values are:
 
 The optional ones are:
 
-- **rssFilename** (string): the name for the rss feed (default: `feed.xml`)/
+- **rssFilename** (string): the name for the rss feed (default: `feed.xml`)
 - **sortPagesBy** (string): `date` or `weight`, set the property to sort the pages (default: `date`).
 - **sortPagesOrder** (string): `asc` or `desc`, set the sorting order (default: `desc`).
 
@@ -161,7 +161,7 @@ The templating engine is [mustache](https://mustache.github.io/).
 
 ### Mustache 101
 
-If you have a variable `title`, use `{{title}}` in your template to display if.
+If you have a variable `title`, use `{{title}}` in your template to display it.
 
 > All variables are HTML escaped by default. If you want to return unescaped HTML, use the triple mustache: {{{name}}}.
 
@@ -201,8 +201,6 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 - `beulogue`
 	- `cwd`: the current working directory.
 
-Note for `multilang`, you can use:
-
 ### Variables for the list template
 
 - `pages`: a list with page elements. See previous section for details, `content` is not present though.
@@ -231,14 +229,14 @@ languages:
 
 Your contents:
 
-- In *english*: filenames will be like `about.md` (no mention about the language in the filename).
-- In *other language*: filenames will be like `about.fr.md` if you have a `fr` language.
-- Filenames ending with a non defined language will given the default language.
+- In *english* (here, `en`, the first language of the list): filenames will be like `about.md` (no mention about the language in the filename).
+- In *other language* (here, `fr`): filenames will be like `about.fr.md`.
+- Filenames ending with a non defined language will given the default language; in our example, `en`.
 
 Structure:
 
 - If you have one language: everything will start the root of the `public` folder. A `feed.xml` file will be created in that folder.
-- If you have multiple languages: each language will start in the `public/<language>/` folder. A default `index.html` file will be at the root of the `public` folder, redirecting to the default language. A  `feed.xml` file will be created for each language.
+- If you have multiple languages: each language will start in the `public/<language>/` folder. A default `index.html` file will be at the root of the `public` folder, redirecting to the default language. A `feed.xml` file will be created for each language.
 
 # Notes
 
@@ -290,7 +288,7 @@ I'll spec that one day...
 
 ## Contributing
 
-Check the [contributing](./CONTRIBUTING.md) document for some info.
+Check the [CONTRIBUTING.md](./CONTRIBUTING.md) document for some info.
 
 1. Fork it (https://github.com/SiegfriedEhret/beulogue/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
