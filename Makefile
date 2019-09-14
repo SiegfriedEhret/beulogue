@@ -1,11 +1,13 @@
+.PHONY: docs
+
 all: build
 
 build: ## Build beulogue
 	shards build
 
-build-and-run: build run ## Build and run in docs
+build-and-run: build docs ## Build and run in docs
 
-deploy: run ## Deploy using Apex Up
+deploy: docs ## Deploy using Apex Up
 	up deploy production
 
 git-push: check-env ## Push all the things
@@ -32,7 +34,7 @@ release-archive: build check-target ## Make a tar.gz archive from the binary
 
 release: release-archive git-push ## Release beulogue
 
-run: ## Run in docs
+docs: ## Run in docs
 	cd docs ;\
 	beulogue ;\
 	cp templates/*.css public/
