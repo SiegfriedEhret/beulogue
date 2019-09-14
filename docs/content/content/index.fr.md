@@ -12,4 +12,4 @@ Les fichiers de sortie auront le même nom que vos fichiers markdown. Ils se ter
 Vous pouvez injecter du contenu dans vos modèles de page
 You can inject content in your list template using a `_index.md` (for your content language) or `_index.LANG.md` for a given `LANG` (example: `_index.fr.md` for french).
 
-[⬅️ configuration](/en/usage/configuration.html) || [front matter ➡️](/en/content/front-matter.html)
+[⬅️ configuration](/fr/usage/configuration.html) || [matière liminaire ➡️](/fr/content/front-matter.html)

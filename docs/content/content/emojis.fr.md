@@ -9,4 +9,4 @@ Vous pouvez utiliser des emojis en utilisant `:smile:`, qui sera rendu comme cec
 
 La liste complète est [ici](https://github.com/veelenga/emoji.cr/blob/master/src/emoji/emoji_map.cr).
 
-[⬅️ Raccourcis](/fr/content/shortcodes.html) || [Modèles de pages ➡️](/fr/content/templating.html)
+[⬅️ raccourcis](/fr/content/shortcodes.html) || [modèles de pages ➡️](/fr/content/templating.html)

@@ -1,7 +1,7 @@
 ---
 title: Shortcodes
 date: 2019-05-25
-description: How to use front matter
+description: How to use shortcodes
 weight: 2.2
 ---
 

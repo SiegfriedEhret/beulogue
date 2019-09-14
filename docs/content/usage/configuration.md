@@ -25,7 +25,7 @@ The mandatory possible keys and values are:
 
 The optional ones are:
 
-- **rssFilename** (string): the name for the rss feed (default: `feed.xml`)/
+- **rssFilename** (string): the name for the rss feed (default: `feed.xml`)
 - **sortPagesBy** (string): `date` or `weight`, set the property to sort the pages (default: `date`).
 - **sortPagesOrder** (string): `asc` or `desc`, set the sorting order (default: `desc`).
 

@@ -33,4 +33,4 @@ Les propriétés suivantes sont optionnelles:
 - **tags** (liste de chaînes de caractères): quelques étiquettes pour catégoriser votre billet.
 - **weight** (nombre flottant): le poids de la page, peut être utilisé pour le tri des billets. La valeur par défaut est `1.0`.
 
-[⬅️ contenu](/fr/content/index.html) || [Raccourcis ➡️](/fr/content/shortcodes.html)
+[⬅️ contenu](/fr/content/index.html) || [raccourcis ➡️](/fr/content/shortcodes.html)

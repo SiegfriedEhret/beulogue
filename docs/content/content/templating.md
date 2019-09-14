@@ -16,7 +16,7 @@ The templating engine is [mustache](https://mustache.github.io/).
 
 {{=<% %>=}}
 
-If you have a variable `title`, use `{{title}}` in your template to display if.
+If you have a variable `title`, use `{{title}}` in your template to display it.
 
 > All variables are HTML escaped by default. If you want to return unescaped HTML, use the triple mustache: {{{name}}}.
 
@@ -42,8 +42,8 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 
 ### Variables for the page template
 
-- `title`: the title of the page, from your content front matter.
-- `date`: the date of your content, from its front matter
+- `title`: the title of the content, from the front matter.
+- `date`: the date of your content, from the front matter
 - `dateFormatted`: the same thing formatted as `YYYY-MM-DD`.
 - `content`: your content in html.
 - `contentPath`: the path to your markdown, relative to the `content` folder.
@@ -58,8 +58,6 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 - `beulogue`
 	- `cwd`: the current working directory.
 
-Note for `multilang`, you can use:
-
 ### Variables for the list template
 
 - `pages`: a list with page elements. See previous section for details, `content` is not present though.
@@ -72,4 +70,4 @@ Note for `multilang`, you can use:
 
 If you use the `_index.md` or `_index.LANG.md` feature to include content in your list template, you'll get a merge of the page and list variables.
 
-[⬅️ shortcodes](/en/content/shortcodes.html) || [multilingual ➡️](/en/content/multilingual.html)
+[⬅️ emojis](/en/content/emojis.html) || [multilingual ➡️](/en/content/multilingual.html)

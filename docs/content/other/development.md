@@ -21,7 +21,7 @@ I'll spec that one day...
 
 ## Contributing
 
-Check the [contributing](https://github.com/SiegfriedEhret/beulogue/blob/master/CONTRIBUTING.md) document for some info.
+Check the [CONTRIBUTING.md](https://github.com/SiegfriedEhret/beulogue/blob/master/CONTRIBUTING.md) document for some info.
 
 1. Fork it (https://github.com/SiegfriedEhret/beulogue/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
