@@ -8,3 +8,7 @@ shards:
     github: veelenga/emoji.cr
     commit: 22c147f37333a94249eac7ce54e7e9f1c4999838
 
+  markd:
+    github: icyleaf/markd
+    commit: 20962e6cfb4513eb94e6549fd8b735b15d10c6d1
+

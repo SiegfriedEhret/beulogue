@@ -19,3 +19,6 @@ dependencies:
   emoji:
     github: veelenga/emoji.cr
     branch: master
+  markd:
+    github: icyleaf/markd
+    branch: master
