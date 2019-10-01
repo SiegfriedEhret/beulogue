@@ -1,5 +1,5 @@
 require "html"
-require "markdown"
+require "markd"
 require "xml"
 require "../objects/*"
 require "../pipeline/*"

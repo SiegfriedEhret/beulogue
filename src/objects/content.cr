@@ -31,7 +31,7 @@ module Beulogue
       end
 
       @frontMatter = BeulogueFrontMatter.from_yaml(frontMatter)
-      @content = Markdown.to_html(Emoji.emojize(content))
+      @content = Markd.to_html(Emoji.emojize(content))
       @lang = contentLang
 
       suffix = ".md"
