@@ -5,7 +5,7 @@ description: Comment utiliser les emojis.
 weight: 2.3
 ---
 
-Vous pouvez utiliser des emojis en utilisant `:smile:`, qui sera rendu comme ceci: :smile: !
+Vous pouvez utiliser des emojis en utilisant les raccourcis; voir [cette page](https://www.webfx.com/tools/emoji-cheat-sheet/) ou les «shortcodes» dans [celle-ci](https://emojipedia.org/smiling-face-with-heart-shaped-eyes/) par exemple.
 
 La liste complète est [ici](https://github.com/veelenga/emoji.cr/blob/master/src/emoji/emoji_map.cr).
 
