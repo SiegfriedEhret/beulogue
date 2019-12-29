@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [2.34.13](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.34.13)
+
+- :bug: fixed a bug that prevented sub-list to be rendered (by updating markd)
+
 ## [2.34.8](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.34.8)
 
 - :gift: nicer error message when a parsing error occurs
