@@ -6,9 +6,9 @@ shards:
 
   emoji:
     github: veelenga/emoji.cr
-    commit: 22c147f37333a94249eac7ce54e7e9f1c4999838
+    commit: 2f991f0d373badd72a9c26374fa453f3ccd1706a
 
   markd:
     github: icyleaf/markd
-    commit: 20962e6cfb4513eb94e6549fd8b735b15d10c6d1
+    commit: bc7a847265bcf50dbea4342e46410e33a6d5658d
 
