@@ -5,6 +5,7 @@ module Beulogue
     getter fs : Crustache::ViewLoader
     getter list : Crustache::Template
     getter page : Crustache::Template
+    getter tag : Crustache::Template
     getter baseModel : Hash(String, Hash(String, Array(String) | String) | Hash(String, String | Nil))
 
     def initialize(config : BeulogueConfig)
@@ -14,6 +15,14 @@ module Beulogue
         @fs = fs
         @list = fs.load! "list.html"
         @page = fs.load! "page.html"
+        @tag = @list
+
+        begin
+          @tag = fs.load! "tag.html"
+        rescue ex
+          Beulogue.logger.warn "Failed to load tag page template."
+          Beulogue.logger.debug ex.message
+        end
       else
         Beulogue.logger.fatal "Can't read templates"
         exit 1
@@ -45,6 +54,14 @@ module Beulogue
       Beulogue.logger.debug "Writing page: #{model}"
 
       html = Crustache.render(@page, model, @fs)
+    end
+
+    def renderTag(content : Hash)
+      model = @baseModel.merge(content)
+
+      Beulogue.logger.debug "Writing tag page: #{model}"
+
+      html = Crustache.render(@tag, model, @fs)
     end
   end
 end

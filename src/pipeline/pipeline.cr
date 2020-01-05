@@ -12,6 +12,14 @@ module Beulogue
         @renderer = Renderer.new(@config)
       end
 
+      def processTags(pages : Array(BeuloguePage), lang : String, contentLang : String)
+        tags = pages.map { |p| p.tags }.flatten.compact.uniq
+        Beulogue.logger.debug "Tags #{tags.inspect}"
+        tags.each do |t|
+          Beulogue::Pipeline::Tag.write(@renderer, @config, pages.select { |p| p.tags.includes? t }, t, lang, contentLang)
+        end
+      end
+
       def runSingleLanguage(files : Array(Path))
         lang = @config.languages[0]
 
@@ -29,9 +37,11 @@ module Beulogue
             end
           end
 
-          realPages = pages.compact
-          Beulogue::Pipeline::List.write(@renderer, @config, realPages.select { |p| !p.orphan }, "", lang)
-          Beulogue::Pipeline::RSS.write(@config, realPages, "")
+          pagesToWrite = pages.compact.select { |p| !p.orphan }
+          processTags(pagesToWrite, "", lang)
+
+          Beulogue::Pipeline::List.write(@renderer, @config, pagesToWrite, "", lang)
+          Beulogue::Pipeline::RSS.write(@config, pagesToWrite, "")
         end
 
         Beulogue.logger.info "Site for language #{lang} (#{files.size} pages) built in #{elapsed_time.total_milliseconds.round(2)}ms."
@@ -74,8 +84,12 @@ module Beulogue
               Beulogue::Pipeline::Page.write(@renderer, content, multiLang)
             end
 
-            Beulogue::Pipeline::List.write(@renderer, @config, pages.select { |p| !p.orphan }, lang, lang)
-            Beulogue::Pipeline::RSS.write(@config, pages, lang)
+            pagesToWrite = pages.select { |p| !p.orphan }
+
+            processTags(pagesToWrite, lang, lang)
+
+            Beulogue::Pipeline::List.write(@renderer, @config, pagesToWrite, lang, lang)
+            Beulogue::Pipeline::RSS.write(@config, pagesToWrite, lang)
           end
 
           times[lang] = times[lang] + elapsed_time.total_milliseconds
