@@ -30,7 +30,7 @@ The following properties are all mandatory:
 The following properties are optional:
 
 - **orphan** (`true` or `false`): set to `true` and your page will be rendered but not included in the list templates.
-- **tags** (array of string): some tags for your content.
+- **tags** (array of string): some tags for your content. Tags pages will be generated from a custom `tags.html` template or the `list.html` one.
 - **weight** (float number): weight of the page, used for sorting. Default is `1.0`.
 
 [⬅️ content](/en/content/index.html) || [shortcodes ➡️](/en/content/shortcodes.html)

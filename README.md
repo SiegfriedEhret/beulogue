@@ -56,7 +56,8 @@ my-website
 │   └── about.md
 └── templates
     ├── list.html
-    └── page.html
+    ├── page.html
+    └── tags.html (optional)
 ```
 
 - `beulogue.yml` is a mandatory configuration file.
@@ -124,7 +125,7 @@ The following properties are all mandatory:
 The following properties are optional:
 
 - **orphan** (`true` or `false`): set to `true` and your page will be rendered but not included in the list templates.
-- **tags** (array of string): some tags for your content.
+- **tags** (array of string): some tags for your content. Tags pages will be generated from a custom `tags.html` template or the `list.html` one.
 - **weight** (float number): weight of the page, used for sorting. Default is `1.0`.
 
 ### Shortcodes
@@ -213,6 +214,10 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 
 If you use the `_index.md` or `_index.LANG.md` feature to include content in your list template, you'll get a merge of the page and list variables.
 
+### Variables for the tag templates
+
+Same as the ones from the list template.
+
 ## Multilingual site
 
 As explained in the Configuration part, you need at least one language, useful for the `lang` attribute for example.
@@ -258,7 +263,7 @@ And maybe at some point:
 - [x] shortcodes
 - [x] links between languages
 - [x] orphan pages
-- [ ] tags (pages)
+- [x] tags (pages)
 - [ ] drafts
 
 And probably won't:

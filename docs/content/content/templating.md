@@ -70,4 +70,8 @@ Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more i
 
 If you use the `_index.md` or `_index.LANG.md` feature to include content in your list template, you'll get a merge of the page and list variables.
 
+### Variables for the tag templates
+
+Same as the ones from the list template.
+
 [⬅️ emojis](/en/content/emojis.html) || [multilingual ➡️](/en/content/multilingual.html)

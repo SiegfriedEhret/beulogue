@@ -70,4 +70,8 @@ Rendez-vous sur l'[aide mustache](https://mustache.github.io/mustache.5.html) po
 
 Si vous utilisez la foncitonnalité `_index.md` ou `_index.LANG.md` pour inclure un contenu dans votre modèle de liste, vous aurez un regroupement des variables de page et de liste.
 
+### Variables pour le modèle de page de tag
+
+Identiques à celles du modèle de liste.
+
 [⬅️ emojis](/fr/content/emojis.html) || [site multi-langues ➡️](/fr/content/multilingual.html)

@@ -30,7 +30,7 @@ Les propriétés suivantes sont nécessaires:
 Les propriétés suivantes sont optionnelles:
 
 - **orphan** (`true` or `false`): mettre à `true` pour que les pages soient construites mais non incluses dans le modèle de page correspondant à la liste.
-- **tags** (liste de chaînes de caractères): quelques étiquettes pour catégoriser votre billet.
+- **tags** (liste de chaînes de caractères): quelques étiquettes pour catégoriser votre billet. Les pages d'étiquettes seront générées à partir du modèle `tags.html`, ou du modèle de liste `list.html` si non trouvé.
 - **weight** (nombre flottant): le poids de la page, peut être utilisé pour le tri des billets. La valeur par défaut est `1.0`.
 
 [⬅️ contenu](/fr/content/index.html) || [raccourcis ➡️](/fr/content/shortcodes.html)
