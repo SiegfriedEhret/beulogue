@@ -15,7 +15,9 @@ Les commandes disponibles sont:
 
 Drapeaux:
 
-- `-nb` ou `--no-base`: pour utiliser une `base` vite au lieu de celle indiquée dans le fichier de configuration. Utile our le développement.
+- `-dev` or `--development`: 
+  - pour utiliser une `base` vide au lieu de celle indiquée dans le fichier de configuration pour rendre la navigation plus facile en local
+  - pour prendre en compte les fichiers dans le répertoire `drafts/`
 
 Protip: some basic templates just for you ! Please go to:
 

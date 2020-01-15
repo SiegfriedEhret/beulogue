@@ -31,7 +31,9 @@ Here are the possible commands:
 
 Possible flags:
 
-- `-nb` or `--no-base`: will use an empty `base` instead of the one given in the configuration file. Useful for development.
+- `-dev` or `--development`: 
+  - will use an empty `base` instead of the one given in the configuration file to make local navigation easier
+  - will add markdown in the `drafts/` folder
 
 Protip: voici quelques kits de démarrage juste pour vous ! Rendez-vous sur l'un de ces miroirs:
 
@@ -54,6 +56,8 @@ my-website
 │   ├── about.fr.md
 │   ├── about.jp.md
 │   └── about.md
+├── drafts
+│   └── next-article.md
 └── templates
     ├── list.html
     ├── page.html
@@ -62,6 +66,7 @@ my-website
 
 - `beulogue.yml` is a mandatory configuration file.
 - `content/` is the folder with all your pages.
+- `drafts/` is the folder with all your drafts (only considered when using `beulogue -dev`).
 - `templates/` is the folder for your templates.
 
 ## Configuration

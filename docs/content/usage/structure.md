@@ -18,13 +18,17 @@ my-website
 │   ├── about.fr.md
 │   ├── about.jp.md
 │   └── about.md
+├── drafts
+│   └── next-article.md
 └── templates
     ├── list.html
-    └── page.html
+    ├── page.html
+    └── tags.html (optional)
 ```
 
 - `beulogue.yml` is a mandatory configuration file.
 - `content/` is the folder with all your pages.
+- `drafts/` is the folder with all your drafts (only considered when using `beulogue -dev`).
 - `templates/` is the folder for your templates.
 
 [⬅️ usage](/en/usage/usage.html) || [configuration ➡️](/en/usage/configuration.html)

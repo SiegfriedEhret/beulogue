@@ -15,7 +15,9 @@ Here are the possible commands:
 
 Possible flags:
 
-- `-nb` or `--no-base`: will use an empty `base` instead of the one given in the configuration file. Useful for development.
+- `-dev` or `--development`: 
+  - will use an empty `base` instead of the one given in the configuration file to make local navigation easier
+  - will add markdown in the `drafts/` folder
 
 Protip: voici quelques kits de démarrage juste pour vous ! Rendez-vous sur l'un de ces miroirs:
 
@@ -23,4 +25,4 @@ Protip: voici quelques kits de démarrage juste pour vous ! Rendez-vous sur l'un
 - [codeberg](https://codeberg.org/SiegfriedEhret/beulogue-templates/)
 - [github](https://github.com/SiegfriedEhret/beulogue-templates/)
 
-[⬅️ install](/fr/usage/install.html) || [structure ➡️](/fr/usage/structure.html)
+[⬅️ install](/en/usage/install.html) || [structure ➡️](/en/usage/structure.html)

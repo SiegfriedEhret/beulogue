@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [3.0.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-3.0.0)
+
+- :fire: remove `-nb` parameter, replaced with `-dev`
+
 ## [2.55.13](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-2.55.13)
 
 - :gift: You can now generate tag pages!
