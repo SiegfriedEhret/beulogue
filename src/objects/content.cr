@@ -12,7 +12,7 @@ module Beulogue
     getter lang : String
     getter frontMatter : BeulogueFrontMatter
 
-    def initialize(@fromPath : Path, pathLang : String, contentLang : String, @cwd : Path)
+    def initialize(@fromPath : Path, pathLang : String, contentLang : String, @cwd : Path, dev_mode : Bool | Nil)
       frontMatterDelimiter = "---"
       frontMatterDelimiterCount = 0
       frontMatter = ""
@@ -39,12 +39,18 @@ module Beulogue
         suffix = ".#{pathLang}#{suffix}"
       end
 
-      @contentPath = fromPath.to_s.sub(@cwd.join("content").to_s, "")
+      folderName = "content"
+      if dev_mode == true && fromPath.to_s.includes? "/drafts"
+        folderName = "drafts"
+      end
+
+      @contentPath = fromPath.to_s.sub(@cwd.join(folderName).to_s, "")
       @base = fromPath.to_s.sub(suffix, "")
 
-      tempToPath = fromPath.to_s.sub("/content/", "/public/#{pathLang}/").gsub("//", "/")
+      tempToPath = fromPath.to_s.sub("/#{folderName}/", "/public/#{pathLang}/").gsub("//", "/")
 
       @toPath = Path[tempToPath.sub(suffix, ".html")]
+
       @toURL = @toPath.to_s.sub(@cwd.join("public").to_s, "")
     end
   end

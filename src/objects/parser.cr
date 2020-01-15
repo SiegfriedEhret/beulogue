@@ -7,7 +7,7 @@ module Beulogue
       @content = content
     end
 
-    def load(name)
+    def load(name, dev_mode : Bool)
       # Internal contents
 
       if /\Aref\s+(.+)\z/ === name
@@ -23,7 +23,7 @@ module Beulogue
           lang = /^.*\.([\w\-]+)\.md$/.match(realFilepath.to_s).try &.[1] || ""
 
           if File.exists?(realFilepath)
-            refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.cwd)
+            refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.cwd, dev_mode)
             model = BeuloguePage.new(refContent, Array(Hash(String, String)).new)
 
             html = <<-HTML

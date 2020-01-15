@@ -29,6 +29,7 @@ module Beulogue
       targetDir: String?,
       sortBy: PagesSortBy?,
       sortOrder: PagesSortOrder?,
+      dev_mode: Bool?,
     )
   end
 end

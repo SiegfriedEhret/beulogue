@@ -14,6 +14,7 @@ module Beulogue
         end
 
         Beulogue.logger.info "Building site: «#{config.title}»"
+        config.dev_mode = dev_mode
 
         processor = Beulogue::Pipeline::Pipeline.new(path, config)
         processor.run

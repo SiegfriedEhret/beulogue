@@ -1,7 +1,7 @@
 module Beulogue
   module Pipeline
     class List
-      def self.write(renderer : Renderer, config : BeulogueConfig, pages : Array(BeuloguePage), lang : String, contentLang : String)
+      def self.write(renderer : Renderer, config : BeulogueConfig, pages : Array(BeuloguePage), lang : String, contentLang : String, dev_mode : Bool | Nil)
         targetDir = config.targetDir
         cwd = config.cwd
         defaultLanguage = config.languages[0]
@@ -15,7 +15,7 @@ module Beulogue
 
           if !listContentPath.nil?
             if File.exists?(listContentPath)
-              listContent = BeulogueContent.new(listContentPath, defaultLanguage, defaultLanguage, Path[cwd])
+              listContent = BeulogueContent.new(listContentPath, defaultLanguage, defaultLanguage, Path[cwd], dev_mode)
               model = BeuloguePage.new(listContent, Array(Hash(String, String)).new).to_hash
             end
           end

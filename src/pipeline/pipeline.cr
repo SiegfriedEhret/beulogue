@@ -28,7 +28,7 @@ module Beulogue
         elapsed_time = Time.measure do
           pages = files.map do |f|
             begin
-              content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd)
+              content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd, @config.dev_mode)
               Beulogue::Pipeline::Page.write(@renderer, content, BeulogueMultilang.new)
             rescue ex
               Beulogue.logger.error "Failed to process #{f}"
@@ -40,7 +40,7 @@ module Beulogue
           pagesToWrite = pages.compact.select { |p| !p.orphan }
           processTags(pagesToWrite, "", lang)
 
-          Beulogue::Pipeline::List.write(@renderer, @config, pagesToWrite, "", lang)
+          Beulogue::Pipeline::List.write(@renderer, @config, pagesToWrite, "", lang, @config.dev_mode)
           Beulogue::Pipeline::RSS.write(@config, pagesToWrite, "")
         end
 
@@ -58,7 +58,7 @@ module Beulogue
           elapsed_time = Time.measure do
             contents = filesForLanguage.map do |f|
               begin
-                content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @cwd)
+                content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @cwd, @config.dev_mode)
               rescue ex
                 Beulogue.logger.error "Failed to process #{f}"
                 Beulogue.logger.debug ex.message
@@ -88,7 +88,7 @@ module Beulogue
 
             processTags(pagesToWrite, lang, lang)
 
-            Beulogue::Pipeline::List.write(@renderer, @config, pagesToWrite, lang, lang)
+            Beulogue::Pipeline::List.write(@renderer, @config, pagesToWrite, lang, lang, @config.dev_mode)
             Beulogue::Pipeline::RSS.write(@config, pagesToWrite, lang)
           end
 
@@ -107,6 +107,16 @@ module Beulogue
           exit
         else
           files = Beulogue::Pipeline::Walker.run(@cwd)
+
+          if @config.dev_mode == true
+            begin
+              files = files + Beulogue::Pipeline::Walker.run(@cwd, "drafts")
+            rescue
+              Beulogue.logger.warn "Can't open folder: drafts/"
+            end
+          end
+
+          Beulogue.logger.debug files.inspect
 
           if @config.languages.size > 1
             self.runMultiLanguage files
