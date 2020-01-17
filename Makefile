@@ -3,7 +3,7 @@
 all: build
 
 build: ## Build beulogue
-	shards build
+	shards build --release
 
 build-and-run: build docs ## Build and run in docs
 
