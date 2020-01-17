@@ -8,7 +8,7 @@ targets:
   beulogue:
     main: src/beulogue.cr
 
-crystal: 0.28.0
+crystal: 0.32.1
 
 license: GPL v3
 
