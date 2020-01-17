@@ -269,7 +269,7 @@ And maybe at some point:
 - [x] links between languages
 - [x] orphan pages
 - [x] tags (pages)
-- [ ] drafts
+- [x] drafts
 
 And probably won't:
 
