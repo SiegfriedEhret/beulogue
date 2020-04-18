@@ -18,6 +18,8 @@ Possible flags:
 - `-dev` or `--development`: 
   - will use an empty `base` instead of the one given in the configuration file to make local navigation easier
   - will add markdown in the `drafts/` folder
+- `-d` or `--debug`: show some logs
+- `-h` or `--help`: show help
 
 Protip: voici quelques kits de démarrage juste pour vous ! Rendez-vous sur l'un de ces miroirs:
 
