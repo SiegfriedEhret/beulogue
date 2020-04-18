@@ -2,8 +2,7 @@ require "yaml"
 require "./objects/config"
 
 module Beulogue
-  DEFAULT_COMMAND = "build"
-  VERSION         = {{ `cat #{__DIR__}/../VERSION`.stringify.chomp }}
+  VERSION = {{ `cat #{__DIR__}/../VERSION`.stringify.chomp }}
 
   module Conf
     def self.load(cwd : String, dev_mode : Bool)
