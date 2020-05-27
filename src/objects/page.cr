@@ -1,3 +1,5 @@
+require "emoji"
+require "markd"
 require "./content"
 
 module Beulogue
@@ -26,7 +28,7 @@ module Beulogue
       @url = content.toURL
       @weight = content.frontMatter.weight || 1.0
 
-      @content = BeulogueParser.parse(content) || ""
+      @content = Markd.to_html(Emoji.emojize(BeulogueParser.parse(content) || ""))
     end
 
     def to_hash

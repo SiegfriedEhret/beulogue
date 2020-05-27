@@ -2,7 +2,7 @@ require "yaml"
 require "./objects/config"
 
 module Beulogue
-  VERSION = {{ `cat #{__DIR__}/../VERSION`.stringify.chomp }}
+  VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
 
   module Conf
     def self.load(cwd : String, dev_mode : Bool)

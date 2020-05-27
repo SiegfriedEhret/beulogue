@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [3.0.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-3.0.1)
+
+- :bug: fix shortcodes
+
 ## [3.0.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-3.0.0)
 
 - :fire: remove `-nb` parameter, replaced with `-dev`

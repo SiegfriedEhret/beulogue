@@ -1,5 +1,3 @@
-require "emoji"
-
 module Beulogue
   class BeulogueContent
     getter base : String
@@ -31,7 +29,7 @@ module Beulogue
       end
 
       @frontMatter = BeulogueFrontMatter.from_yaml(frontMatter)
-      @content = Markd.to_html(Emoji.emojize(content))
+      @content = content
       @lang = contentLang
 
       suffix = ".md"

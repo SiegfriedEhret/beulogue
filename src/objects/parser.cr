@@ -2,14 +2,12 @@ require "crustache"
 require "./content"
 
 module Beulogue
-  class BeulogueParserFS < Crustache::HashFileSystem
-    def setContext(content : BeulogueContent)
+  class BeulogueFS < Crustache::HashFileSystem
+    def setContent(content : BeulogueContent)
       @content = content
     end
 
-    def load(name, dev_mode : Bool)
-      # Internal contents
-
+    def load(name)
       if /\Aref\s+(.+)\z/ === name
         filepath = $1
 
@@ -23,7 +21,7 @@ module Beulogue
           lang = /^.*\.([\w\-]+)\.md$/.match(realFilepath.to_s).try &.[1] || ""
 
           if File.exists?(realFilepath)
-            refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.cwd, dev_mode)
+            refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.cwd, false)
             model = BeuloguePage.new(refContent, Array(Hash(String, String)).new)
 
             html = <<-HTML
@@ -92,16 +90,44 @@ module Beulogue
     end
   end
 
+  # class YoutubeFS < Crustache::HashFileSystem
+  #   def load(name)
+  #     puts "LOAD #{name}"
+  #     if /\Ayoutube\s+(\w+)\z/ === name
+  #       id = $1
+  #       html = <<-HTML
+  #       <iframe
+  #         type="text/html"
+  #         width="640" height="360"
+  #         src="http://www.youtube.com/embed/#{id}"
+  #         frameborder="0"
+  #         />
+  #       HTML
+
+  #       return Crustache.parse html
+  #     end
+
+  #     super
+  #   end
+  # end
+
+  # fs = YoutubeFS.new
+  # fs.register "test", Crustache.parse bc.content
+  # engine = Crustache::Engine.new fs
+  # engine.render("test", nil)
+
   class BeulogueParser
     def self.parse(bc : BeulogueContent)
-      fs = BeulogueParserFS.new
-      fs.setContext bc
-      fs.register "beulogue", Crustache.parse bc.content
+      fs = BeulogueFS.new
+      fs.setContent bc
+      fs.register("beulogue", Crustache.parse bc.content)
 
       engine = Crustache::Engine.new fs
-      output = IO::Memory.new
 
-      engine.render("beulogue", nil)
+      output = IO::Memory.new
+      engine.render("beulogue", nil, output)
+
+      output.to_s
     end
   end
 end
