@@ -3,7 +3,10 @@
 all: build
 
 build: ## Build beulogue
-	shards build
+	shards build --release
+
+build-release: ## Build beulogue in release mode
+	shards build --release
 
 build-and-run: build docs ## Build and run in docs
 
@@ -28,7 +31,7 @@ ifndef TARGET
 	$(error TARGET is undefined (make release-archive TARGET=linux))
 endif
 
-release-archive: build check-target ## Make a tar.gz archive from the binary
+release-archive: build-release check-target ## Make a tar.gz archive from the binary
 	cd bin ;\
 	tar czf beulogue-$(TARGET).tar.gz beulogue
 
