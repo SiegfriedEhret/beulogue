@@ -1,0 +1,22 @@
+brrr: "https://github.com/SiegfriedEhret/beulogue/raw/master/brrr.yaml"
+latest_version: 3.0.1
+name: "beulogue"
+releases_feed: "https://github.com/SiegfriedEhret/beulogue/releases.atom"
+tags:
+  - crystal
+  - static-site-generator
+  - blog-engine
+  - markdown
+  - beulogue
+url: "https://github.com/SiegfriedEhret/beulogue"
+versions:
+  "3.0.1":
+    linux:
+      post_install:
+        - 
+          type: "symlink"
+          source: "beulogue"
+          target: "beulogue"
+      binary_type: "tar"
+      url: "https://github.com/SiegfriedEhret/beulogue/releases/download/release-3.0.1/beulogue-linux.tar.gz"
+  
