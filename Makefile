@@ -3,7 +3,7 @@
 all: build
 
 build: ## Build beulogue
-	shards build --release
+	shards build
 
 build-release: ## Build beulogue in release mode
 	shards build --release
