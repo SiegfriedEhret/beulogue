@@ -1,7 +1,7 @@
 ---
 title: Templating
 date: 2019-05-25
-description: Templating with mustache
+description: Templating with Crinja
 weight: 2.4
 ---
 
@@ -10,35 +10,30 @@ You have 2 html files to provide, they must be in the `templates` folder of your
 - `list.html`: for the list of items
 - `page.html`: for a content item
 
-The templating engine is [mustache](https://mustache.github.io/).
+The templating engine is almost the same as [Jinja](https://jinja.palletsprojects.com/en/2.11.x/), thanks to the following library: [Crinja](https://straight-shoota.github.io/crinja/).
 
-### Mustache 101
 
-{{=<% %>=}}
+### Templating 101
 
-If you have a variable `title`, use `{{title}}` in your template to display it.
-
-> All variables are HTML escaped by default. If you want to return unescaped HTML, use the triple mustache: {{{name}}}.
+If you have a variable `title`, use `{{ "{{title}}" }}` in your template to display it.
 
 If you have a variable `pages` which is a list of objects with a `title` property, you can loop using:
 
 ```
-{{#pages}}
-  {{title}}
-{{/pages}}
+{{ "{% for page in pages %}
+  {{ page.title }}
+{% endfor %}" }}
 ```
 
 If you want a conditional rendering for `title` whether it has or not a value, use:
 
 ```
-{{#title}}
-  Title is displayed ! {{title}}
-{{/title}}
+{{ "{% if title %}
+  Title is displayed ! {{ title }}
+{% endif %}" }}
 ```
 
 Go to the [mustache help](https://mustache.github.io/mustache.5.html) for more info.
-
-<%={{ }}=%>
 
 ### Variables for the page template
 

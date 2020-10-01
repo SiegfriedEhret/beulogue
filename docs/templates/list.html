@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-	{{>head}}
+	{% include "head.html" %}
 
 	<body>
-		{{>header}}
+		{% include "header.html" %}
 
 		<main id="main">
 			<section class="list">
@@ -11,21 +11,22 @@
 					{{title}}
 				</h1>
 
-				{{{content}}}
+				{{content | escape}}
 
 				<ul>
-					{{#pages}}
+					{% for page in pages %}
 					<li>
-						<a href="{{url}}">{{title}}</a>
-						{{#tags}}
-						<p>{{.}}</p>
-						{{/tags}}
+						<a href="{{page.url}}">{{page.title}}</a>
+
+						{% for tag in page.tags %}
+							<p>{{tag}}</p>
+						{% endfor %}
 					</li>
-					{{/pages}}
+					{% endfor %}
 				</ul>
 			</section>
 		</main>
 
-		{{>footer}}
+		{% include "footer.html" %}
 	</body>
 </html>

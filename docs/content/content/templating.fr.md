@@ -1,7 +1,7 @@
 ---
 title: Modèles de pages
 date: 2019-10-14
-description: Modèles de pages avec mustache
+description: Modèles de pages avec Crinja
 weight: 2.4
 ---
 
@@ -10,35 +10,29 @@ Vous devez fournir 2 fichiers html, qui doivent être placés dans le dossier `t
 - `list.html`: pour la liste des contenus
 - `page.html`: pour un contenu
 
-L'outil utiliser pour les modèles est [mustache](https://mustache.github.io/).
+L'outil utiliser pour les modèles est quasiment identique à [Jinja](https://jinja.palletsprojects.com/en/2.11.x/), via la librairie [Crinja](https://straight-shoota.github.io/crinja/).
 
-### Mustache 101
+### Templating 101
 
-{{=<% %>=}}
+Si une variable nommée `title` est disponible, utilisez `{{ "{{ title }}" }}` dans le template pour afficher sa valeur.
 
-Si une variable nommée `title` est disponible, utilisez `{{title}}` dans le template pour afficher sa valeur.
-
-> Toutes les variables sont en HTML [échappé](https://fr.wikipedia.org/wiki/S%C3%A9quence_d%27%C3%A9chappement) de base. Si vous souhaitez afficher de l'HTML non échappé, utilisez les moustaches triples: {{{name}}}.
-
-Si vous avez une variable `pages` qui est une liste l'objets avec une propritété `title`, vous pouvez bouclez sur la liste comme tel:
+Si vous avez une variable `pages` qui est une liste d'objets avec une propritété `title`, vous pouvez bouclez sur la liste comme tel:
 
 ```
-{{#pages}}
-  {{title}}
-{{/pages}}
+{{ "{% for page in pages %}
+  {{ page.title }}
+{% endfor %}" }}
 ```
 
 Si vous souhaitez un affichage conditionnel pour `title` en fonction de si elle a une valeur ou non, utilisez:
 
 ```
-{{#title}}
-  Title is displayed ! {{title}}
-{{/title}}
+{{ "{% if title %}
+  Title is displayed ! {{ title }}
+{% endif %}" }}
 ```
 
 Rendez-vous sur l'[aide mustache](https://mustache.github.io/mustache.5.html) pour plus d'info.
-
-<%={{ }}=%>
 
 ### Variables pour le modèle de page de contenu
 

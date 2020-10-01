@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-	{{>head}}
+	{% include "head.html" %}
 
 	<body>
-		{{>header}}
+		{% include "header.html" %}
 
 		<main id="main">
 			<section class="page">
 				<h1>
 					{{title}}
 					<span class="nav-lang">
-						{{#multilang}}
-						<a href="{{url}}">{{language}}</a>
-						{{/multilang}}
+						{% for lang in multilang %}
+						<a href="{{lang.url}}">{{lang.language}}</a>
+						{% endfor %}
 					</span>
 				</h1>
 
-				{{{content}}}
+				{{content | escape}}
 			</section>
 		</main>
 
-		{{>footer}}
+		{% include "footer.html" %}
 	</body>
 </html>
