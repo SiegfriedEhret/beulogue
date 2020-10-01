@@ -2,6 +2,9 @@
   "name": "beulogue",
   "profile": "beulogue",
   "type": "static",
+  "lambda": {
+    "runtime": "nodejs12.x"
+  },
   "regions": ["eu-central-1"],
   "static": {
     "dir": "docs/public/"
