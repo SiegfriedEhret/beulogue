@@ -4,8 +4,9 @@ require "./content"
 
 module Beulogue
   class BeulogueParser
-    def initialize(bc : BeulogueContent)
+    def initialize(bc : BeulogueContent, multilang : Array(Hash(String, String)))
       @content = bc
+      @multilang = multilang
 
       @env = Crinja.new
       @env.functions["dailymotion"] = fn_dailymotion
@@ -74,9 +75,17 @@ module Beulogue
             refContent = BeulogueContent.new(realFilepath, lang, @content.lang, @content.cwd, false)
             model = BeuloguePage.new(refContent, Array(Hash(String, String)).new)
 
+            link_url = if @multilang.size == 0 || @multilang[0]["language"] == model.language
+                         model.url
+                       else
+                         "/#{model.language}#{model.url}"
+                       end
+
             html = <<-HTML
-            <a href="#{model.url}">#{model.title}</a>
+            <a href="#{link_url}">#{model.title}</a>
             HTML
+
+            html
           else
             puts("Failed to read referenced content: #{realFilepath}")
           end

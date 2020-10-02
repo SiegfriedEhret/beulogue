@@ -28,7 +28,7 @@ module Beulogue
       @url = content.toURL
       @weight = content.frontMatter.weight || 1.0
 
-      parser = BeulogueParser.new content
+      parser = BeulogueParser.new(content, multilang)
       @content = Markd.to_html(Emoji.emojize(parser.parse || ""))
     end
 
@@ -40,7 +40,7 @@ module Beulogue
         "dateFormatted" => @date.to_s("%F"),
         "description"   => @description,
         "language"      => @language,
-        "multilang"     => @multilang,
+        "multilang"     => @multilang.sort_by { |e| e["language"] },
         "tags"          => tags,
         "title"         => @title,
         "url"           => @url,
