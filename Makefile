@@ -26,14 +26,14 @@ ifndef VERSION
 	$(error VERSION is undefined (make release VERSION=x.x.x))
 endif
 
-check-target: ## Check that TARGET is present
-ifndef TARGET
-	$(error TARGET is undefined (make release-archive TARGET=linux))
+check-target: ## Check that ARCH is present
+ifndef ARCH
+	$(error ARCH is undefined (make release-archive ARCH=linux))
 endif
 
 release-archive: build-release check-target ## Make a tar.gz archive from the binary
 	cd bin ;\
-	tar czf beulogue-$(TARGET).tar.gz beulogue
+	tar czf beulogue-$(ARCH).tar.gz beulogue
 
 release: release-archive git-push ## Release beulogue
 
