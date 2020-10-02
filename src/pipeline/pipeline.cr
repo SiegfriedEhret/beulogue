@@ -47,7 +47,7 @@ module Beulogue
         Beulogue.logger.info "Site for language #{lang} (#{files.size} pages) built in #{elapsed_time.total_milliseconds.round(2)}ms."
       end
 
-      def runMultiLanguage(files : Array(Path))
+      def runMultiLanguages(files : Array(Path))
         filesPerLanguage = groupPerLanguage(files, @config.languages)
         multiLang = BeulogueMultilang.new
 
@@ -119,7 +119,7 @@ module Beulogue
           Beulogue.logger.debug files.inspect
 
           if @config.languages.size > 1
-            self.runMultiLanguage files
+            self.runMultiLanguages files
           else
             self.runSingleLanguage files
           end
