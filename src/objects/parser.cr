@@ -1,5 +1,4 @@
 require "crinja"
-require "crustache"
 require "./content"
 
 module Beulogue
