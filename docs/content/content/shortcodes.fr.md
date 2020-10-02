@@ -10,7 +10,7 @@ Les raccourcis (en anglais «shortcodes») sont des petits code à utiliser dans
 ## Contenus internes
 
 - **Référence**: utiliser `{{ "{{ ref(\"chemin/vers/autre-contenu.md\") }}" }}` pour générer un lien vers cet autre contenu.
-	- :warning: une référence d'un contenu vers le même contenu va casser beulogue.
+	- :warning: si vous créez une boucle, beulogue va planter.
 	- beulogue affichera un message si une référence pointe vers un contenu inexistant.
 
 ## Contenus externes

@@ -10,7 +10,7 @@ Shortcodes are small things that you can use in your contents.
 ## Internal contents
 
 - **Reference**: use `{{ "{{ ref(\"path/to/content.md\") }}" }}` to generate a link to this content.
-	- :warning: if you reference a link to the current content, beulogue will crash.
+	- :warning: if you create a loop, beulogue will crash.
 	- beulogue will give you a warning if you reference a non existing content.
 
 ## External contents
