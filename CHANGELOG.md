@@ -1,5 +1,10 @@
 # beulogue releases
 
+## [5.0.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.0.0)
+
+- :gift: replace mustache with crinja for templating
+- :bug: fix ref for multilingual sites
+
 ## [3.0.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-3.0.1)
 
 - :bug: fix shortcodes
