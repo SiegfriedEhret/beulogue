@@ -1,31 +1,25 @@
-require "crustache"
+require "crinja"
 
 module Beulogue
   class Renderer
-    getter fs : Crustache::ViewLoader
-    getter list : Crustache::Template
-    getter page : Crustache::Template
-    getter tag : Crustache::Template
+    getter list : Crinja::Template
+    getter page : Crinja::Template
+    getter tag : Crinja::Template
     getter baseModel : Hash(String, Hash(String, Array(String) | String) | Hash(String, String | Nil))
 
     def initialize(config : BeulogueConfig)
-      fs = Crustache.loader Path[Dir.current].join("templates").to_s
+      env = Crinja.new
+      env.loader = Crinja::Loader::FileSystemLoader.new(Path[Dir.current].join("templates").to_s)
 
-      if fs
-        @fs = fs
-        @list = fs.load! "list.html"
-        @page = fs.load! "page.html"
-        @tag = @list
+      @list = env.get_template("list.html")
+      @page = env.get_template("page.html")
+      @tag = @list
 
-        begin
-          @tag = fs.load! "tag.html"
-        rescue ex
-          Beulogue.logger.warn "Failed to load tag page template."
-          Beulogue.logger.debug ex.message
-        end
-      else
-        Beulogue.logger.fatal "Can't read templates"
-        exit 1
+      begin
+        @tag = env.get_template "tag.html"
+      rescue ex
+        Beulogue.logger.warn "Failed to load tag page template."
+        Beulogue.logger.debug ex.message
       end
 
       @baseModel = {
@@ -45,7 +39,7 @@ module Beulogue
 
       Beulogue.logger.debug "Writing list for lang #{model["language"]}: #{model}"
 
-      html = Crustache.render(@list, model, @fs)
+      html = @list.render model
     end
 
     def renderPage(content : Hash)
@@ -53,7 +47,7 @@ module Beulogue
 
       Beulogue.logger.debug "Writing page: #{model}"
 
-      html = Crustache.render(@page, model, @fs)
+      html = @page.render model
     end
 
     def renderTag(content : Hash)
@@ -61,7 +55,7 @@ module Beulogue
 
       Beulogue.logger.debug "Writing tag page: #{model}"
 
-      html = Crustache.render(@tag, model, @fs)
+      html = @tag.render model
     end
   end
 end

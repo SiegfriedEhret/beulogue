@@ -28,7 +28,8 @@ module Beulogue
       @url = content.toURL
       @weight = content.frontMatter.weight || 1.0
 
-      @content = Markd.to_html(Emoji.emojize(BeulogueParser.parse(content) || ""))
+      parser = BeulogueParser.new content
+      @content = Markd.to_html(Emoji.emojize(parser.parse || ""))
     end
 
     def to_hash

@@ -1,14 +1,14 @@
-version: 1.0
+version: 2.0
 shards:
-  crustache:
-    github: MakeNowJust/crustache
-    version: 2.4.0
+  crinja:
+    git: https://github.com/straight-shoota/crinja.git
+    version: 0.6.1
 
   emoji:
-    github: veelenga/emoji.cr
-    commit: 4642bd8ef64839b4639ba0be521e8c85113cb8d5
+    git: https://github.com/veelenga/emoji.cr.git
+    version: 0.4.0+git.commit.4642bd8ef64839b4639ba0be521e8c85113cb8d5
 
   markd:
-    github: icyleaf/markd
-    commit: d1456d336f3906474cdd18f8fc14a6aa2671f434
+    git: https://github.com/icyleaf/markd.git
+    version: 0.2.1+git.commit.d1456d336f3906474cdd18f8fc14a6aa2671f434
 

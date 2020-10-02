@@ -1,3 +1,5 @@
+require "yaml"
+
 module Beulogue
   enum Modes
     Dev
@@ -14,22 +16,22 @@ module Beulogue
   end
 
   class BeulogueConfig
-    YAML.mapping(
-      # From beulogue.yml
-      base: String,
-      title: String,
-      languages: Array(String),
-      rssFilename: String?,
-      sortPagesBy: String?,
-      sortPagesOrder: String?,
+    include YAML::Serializable
 
-      # Injected
-      cwd: String?,
-      mode: Modes?,
-      targetDir: String?,
-      sortBy: PagesSortBy?,
-      sortOrder: PagesSortOrder?,
-      dev_mode: Bool?,
-    )
+    # From beulogue.yml
+    property base : String
+    property title : String
+    property languages : Array(String)
+    property rssFilename : String?
+    property sortPagesBy : String?
+    property sortPagesOrder : String?
+
+    # Injected
+    property cwd : String?
+    property mode : Modes?
+    property targetDir : String?
+    property sortBy : PagesSortBy?
+    property sortOrder : PagesSortOrder?
+    property dev_mode : Bool?
   end
 end

@@ -8,14 +8,13 @@ targets:
   beulogue:
     main: src/beulogue.cr
 
-crystal: 0.32.1
+crystal: 0.35.1
 
 license: GPL v3
 
 dependencies:
-  crustache:
-    github: MakeNowJust/crustache
-    version: 2.4.0
+  crinja:
+    github: straight-shoota/crinja
   emoji:
     github: veelenga/emoji.cr
     branch: master
