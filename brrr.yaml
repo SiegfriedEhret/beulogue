@@ -1,5 +1,5 @@
 brrr: "https://github.com/SiegfriedEhret/beulogue/raw/master/brrr.yaml"
-latest_version: 3.0.1
+latest_version: 5.0.0
 name: "beulogue"
 releases_feed: "https://github.com/SiegfriedEhret/beulogue/releases.atom"
 tags:
@@ -10,6 +10,15 @@ tags:
   - beulogue
 url: "https://github.com/SiegfriedEhret/beulogue"
 versions:
+  "5.0.0":
+    linux:
+      post_install:
+        - 
+          type: "symlink"
+          source: "beulogue"
+          target: "beulogue"
+      binary_type: "tar"
+      url: "https://github.com/SiegfriedEhret/beulogue/releases/download/release-5.0.0/beulogue-linux.tar.gz"
   "3.0.1":
     linux:
       post_install:
