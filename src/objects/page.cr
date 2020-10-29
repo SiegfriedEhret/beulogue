@@ -18,8 +18,8 @@ module Beulogue
 
     def initialize(content : BeulogueContent, multilang : Array(Hash(String, String)))
       @contentPath = content.contentPath
-      @date = content.frontMatter.date
-      @description = content.frontMatter.description
+      @date = content.frontMatter.date || Time.utc
+      @description = content.frontMatter.description || ""
       @language = content.lang
       @multilang = multilang
       @orphan = content.frontMatter.orphan || false

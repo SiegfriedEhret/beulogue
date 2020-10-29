@@ -21,9 +21,12 @@ weight: 1.0
 # My content...
 ```
 
-The following properties are all mandatory:
+The following property is mandatory:
 
 - **title** (string): the title for your content item.
+
+The following properties are not mandatory but you should set them:
+
 - **date** (string): a point in time, used to sort your content items ([more info on the format](https://yaml.org/type/timestamp.html)).
 - **description** (string): a small description, used for the rss feed for example.
 

@@ -21,9 +21,12 @@ weight: 1.0
 # Mon contenu...
 ```
 
-Les propriétés suivantes sont nécessaires:
+La propriété suivante est nécessaire:
 
 - **title** (chaîne de caractères): le titre du billet.
+
+Les propriétés suivantes sont optionnelles mais il vaut mieux les utiliser:
+
 - **date** (chaîne de caractères): un point dans le temps, utilisé pour trier les contenus ([plus d'information sur le format, en anglais](https://yaml.org/type/timestamp.html)).
 - **description** (chaîne de caractères): une petite description, utilisée pour le flux rss par exemple.
 
