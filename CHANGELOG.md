@@ -1,5 +1,10 @@
 # beulogue releases
 
+## [5.1.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.1.0)
+
+- :gift: make some frontmatter properties optional
+- :rocket: fix a performance issue
+
 ## [5.0.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.0.0)
 
 - :gift: replace mustache with crinja for templating
