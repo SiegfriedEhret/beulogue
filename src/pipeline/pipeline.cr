@@ -24,20 +24,14 @@ module Beulogue
         lang = @config.languages[0]
 
         Beulogue.logger.debug "Pages for lang #{lang}, #{files}"
+        multilang = BeulogueMultilang.new
 
         elapsed_time = Time.measure do
-          pages = files.map do |f|
-            begin
-              content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd, @config.dev_mode)
-              Beulogue::Pipeline::Page.write(@renderer, content, BeulogueMultilang.new)
-            rescue ex
-              Beulogue.logger.error "Failed to process #{f}"
-              Beulogue.logger.debug ex.message
-              nil
-            end
-          end
+          pagesToWrite = files
+            .map { |f| get_page(f, lang, multilang) }
+            .compact
+            .select { |p| !p.orphan }
 
-          pagesToWrite = pages.compact.select { |p| !p.orphan }
           processTags(pagesToWrite, "", lang)
 
           Beulogue::Pipeline::List.write(@renderer, @config, pagesToWrite, "", lang, @config.dev_mode)
@@ -45,6 +39,17 @@ module Beulogue
         end
 
         Beulogue.logger.info "Site for language #{lang} (#{files.size} pages) built in #{elapsed_time.total_milliseconds.round(2)}ms."
+      end
+
+      private def get_page(f : Path, lang : String, multilang : BeulogueMultilang)
+        begin
+          content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd, @config.dev_mode)
+          Beulogue::Pipeline::Page.write(@renderer, content, multilang)
+        rescue ex
+          Beulogue.logger.error "Failed to process #{f}"
+          Beulogue.logger.debug ex.message
+          nil
+        end
       end
 
       def runMultiLanguages(files : Array(Path))
@@ -84,7 +89,7 @@ module Beulogue
               Beulogue::Pipeline::Page.write(@renderer, content, multiLang)
             end
 
-            pagesToWrite = pages.select { |p| !p.orphan }
+            pagesToWrite = pages.compact.select { |p| !p.orphan }
 
             processTags(pagesToWrite, lang, lang)
 

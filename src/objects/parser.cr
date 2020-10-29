@@ -3,23 +3,21 @@ require "./content"
 
 module Beulogue
   class BeulogueParser
-    def initialize(bc : BeulogueContent, multilang : Array(Hash(String, String)))
-      @content = bc
-      @multilang = multilang
-
+    def initialize
       @env = Crinja.new
       @env.functions["dailymotion"] = fn_dailymotion
       @env.functions["gist"] = fn_gist
-      @env.functions["ref"] = fn_ref
       @env.functions["vimeo"] = fn_vimeo
       @env.functions["youtube"] = fn_youtube
     end
 
-    def parse
-      @env.from_string(@content.content).render
+    def parse(content : BeulogueContent, multilang : Array(Hash(String, String)))
+      @env.functions["ref"] = fn_ref(content, multilang)
+
+      @env.from_string(content.content).render
       # begin
       # rescue
-      #   puts "Failed to read #{@content.fromPath}"
+      #   puts "Failed to read #{content.fromPath}"
       #   ""
       # end
     end
@@ -58,23 +56,23 @@ module Beulogue
       end
     end
 
-    def fn_ref
+    def fn_ref(content : BeulogueContent, multilang : Array(Hash(String, String)))
       Crinja.function(arguments) do
         if arguments.varargs.size != 1
           puts "(function:ref) Received #{arguments.varargs.size} arguments, expected: 1."
           puts "  usage: {{ ref(\"markdown_filepath\") }}"
         else
           filepath = arguments.varargs.shift.as_s
-          fromPath = @content.fromPath
-          url = @content.toURL
+          fromPath = content.fromPath
+          url = content.toURL
           realFilepath = fromPath.parent.join(filepath).normalize
           lang = /^.*\.([\w\-]+)\.md$/.match(realFilepath.to_s).try &.[1] || ""
 
           if File.exists?(realFilepath)
-            refContent = BeulogueContent.new(realFilepath, lang, @content.lang, @content.cwd, false)
+            refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.cwd, false)
             model = BeuloguePage.new(refContent, Array(Hash(String, String)).new)
 
-            link_url = if @multilang.size == 0 || @multilang[0]["language"] == model.language
+            link_url = if multilang.size == 0 || multilang[0]["language"] == model.language
                          model.url
                        else
                          "/#{model.language}#{model.url}"

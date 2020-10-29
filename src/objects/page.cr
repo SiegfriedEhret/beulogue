@@ -4,6 +4,7 @@ require "./content"
 
 module Beulogue
   class BeuloguePage
+    @@parser = BeulogueParser.new
     getter content : String
     getter contentPath : String
     getter date : Time
@@ -27,9 +28,7 @@ module Beulogue
       @title = content.frontMatter.title
       @url = content.toURL
       @weight = content.frontMatter.weight || 1.0
-
-      parser = BeulogueParser.new(content, multilang)
-      @content = Markd.to_html(Emoji.emojize(parser.parse || ""))
+      @content = Markd.to_html(Emoji.emojize(@@parser.parse(content, multilang) || ""))
     end
 
     def to_hash

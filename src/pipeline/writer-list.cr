@@ -22,6 +22,7 @@ module Beulogue
         end
 
         if !targetDir.nil?
+          Dir.mkdir_p(targetDir)
           listModel = BeulogueList.new(pages, contentLang, config, listContent).to_hash
 
           if !model.nil?
