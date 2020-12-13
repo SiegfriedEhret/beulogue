@@ -2,7 +2,8 @@ module Beulogue
   module Pipeline
     class RSS
       def self.write(config : BeulogueConfig, pages : Array(BeuloguePage), lang : String)
-        rss = XML.build(indent: "  ", encoding: "utf-8") do |xml|
+        # TODO bring back encoding
+        rss = XML.build(indent: "  ") do |xml|
           xml.element("rss", version: "2.0") do
             xml.element("channel") do
               xml.element("lastBuildDate") { xml.text Time.local.to_s("%F") }
