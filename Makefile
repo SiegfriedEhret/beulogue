@@ -8,6 +8,9 @@ build: ## Build beulogue
 build-release: ## Build beulogue in release mode
 	shards build --release
 
+build-static:
+	docker run --rm -it -v ${CURDIR}:/workspace -w /workspace crystallang/crystal:0.35.1-alpine sh /workspace/build.sh
+
 build-and-run: build docs ## Build and run in docs
 
 deploy: docs ## Deploy using Apex Up
