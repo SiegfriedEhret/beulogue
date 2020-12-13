@@ -21,10 +21,11 @@ Possible flags:
 - `-d` or `--debug`: show some logs
 - `-h` or `--help`: show help
 
-Protip: voici quelques kits de démarrage juste pour vous ! Rendez-vous sur l'un de ces miroirs:
+Protip: some basic templates just for you ! Please go to:
 
-- [bitbucket](https://bitbucket.org/siegfriedehret/beulogue-templates/)
-- [codeberg](https://codeberg.org/SiegfriedEhret/beulogue-templates/)
 - [github](https://github.com/SiegfriedEhret/beulogue-templates/)
+- [sourcehut](https://git.sr.ht/~siegfriedehret/beulogue-templates)
+- (outdated) [bitbucket](https://bitbucket.org/siegfriedehret/beulogue-templates/)
+- (outdated) [codeberg](https://codeberg.org/SiegfriedEhret/beulogue-templates/)
 
 [⬅️ install](/en/usage/install.html) || [structure ➡️](/en/usage/structure.html)

@@ -21,10 +21,11 @@ Drapeaux:
 - `-d` or `--debug`: pour afficher quelques messages
 - `-h` or `--help`: pour afficher l'aide
 
-Protip: some basic templates just for you ! Please go to:
+Protip: voici quelques kits de démarrage juste pour vous ! Rendez-vous sur l'un de ces miroirs:
 
-- [bitbucket](https://bitbucket.org/siegfriedehret/beulogue-templates/)
-- [codeberg](https://codeberg.org/SiegfriedEhret/beulogue-templates/)
 - [github](https://github.com/SiegfriedEhret/beulogue-templates/)
+- [sourcehut](https://git.sr.ht/~siegfriedehret/beulogue-templates)
+- (pas à jour) [bitbucket](https://bitbucket.org/siegfriedehret/beulogue-templates/)
+- (pas à jour) [codeberg](https://codeberg.org/SiegfriedEhret/beulogue-templates/)
 
 [⬅️ installation](/fr/usage/install.html) || [structure ➡️](/fr/usage/structure.html)
