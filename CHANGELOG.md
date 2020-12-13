@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [5.1.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.1.1)
+
+- :bug: fix rss feed bug (needs investigation)
+
 ## [5.1.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.1.0)
 
 - :gift: make some frontmatter properties optional
