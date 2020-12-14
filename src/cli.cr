@@ -1,3 +1,4 @@
+require "log"
 require "option_parser"
 require "./commands/*"
 
@@ -5,7 +6,7 @@ module Beulogue
   DEFAULT_COMMAND = "build"
 
   def self.showHelp
-    Beulogue.logger.info <<-HELP
+    Log.info { <<-HELP
       beulogue [<command>] [<options>]
 
       Commands:
@@ -20,6 +21,7 @@ module Beulogue
 
       More info: https://github.com/SiegfriedEhret/beulogue/
       HELP
+ }
 
     exit 0
   end
@@ -30,11 +32,11 @@ module Beulogue
       dev_mode = false
 
       parser.banner = "Usage: beulogue [command] [flags]"
-      parser.on("-d", "--debug", "Print debug logs.") { self.logger.level = Logger::Severity::DEBUG }
+      parser.on("-d", "--debug", "Print debug logs.") { Log.setup :debug }
       parser.on("-dev", "--development", "Use dev mode (empty base url for development, includes drafts)") { dev_mode = true }
       parser.on("-h", "--help", "Show help") { self.showHelp }
 
-      Beulogue.logger.debug "Working directory: #{cwd}"
+      Log.debug { "Working directory: #{cwd}" }
 
       parser.invalid_option do |flag|
         STDERR.puts "ERROR: #{flag} is not a valid option."

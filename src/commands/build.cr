@@ -8,12 +8,12 @@ module Beulogue
         config = Conf.load(path, dev_mode)
 
         if config.nil?
-          Beulogue.logger.fatal "Failed to read configuration, exiting."
+          Log.fatal { "Failed to read configuration, exiting." }
 
           exit
         end
 
-        Beulogue.logger.info "Building site: «#{config.title}»"
+        Log.info { "Building site: «#{config.title}»" }
         config.dev_mode = dev_mode
 
         processor = Beulogue::Pipeline::Pipeline.new(path, config)

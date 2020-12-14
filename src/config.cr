@@ -9,7 +9,7 @@ module Beulogue
       cwdPath = Path[cwd]
       configPath = cwdPath.join("beulogue.yml")
 
-      Beulogue.logger.debug "Reading config at: #{configPath.to_s}"
+      Log.debug { "Reading config at: #{configPath.to_s}" }
 
       config = BeulogueConfig.from_yaml(File.read(configPath))
       config.cwd = cwd
@@ -36,7 +36,7 @@ module Beulogue
         config.rssFilename = "feed.xml"
       end
 
-      Beulogue.logger.debug "Config: #{config.inspect}"
+      Log.debug { "Config: #{config.inspect}" }
 
       config
     end

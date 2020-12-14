@@ -14,7 +14,7 @@ module Beulogue
 
       def processTags(pages : Array(BeuloguePage), lang : String, contentLang : String)
         tags = pages.map { |p| p.tags }.flatten.compact.uniq
-        Beulogue.logger.debug "Tags #{tags.inspect}"
+        Log.debug { "Tags #{tags.inspect}" }
         tags.each do |t|
           Beulogue::Pipeline::Tag.write(@renderer, @config, pages.select { |p| p.tags.includes? t }, t, lang, contentLang)
         end
@@ -23,7 +23,7 @@ module Beulogue
       def runSingleLanguage(files : Array(Path))
         lang = @config.languages[0]
 
-        Beulogue.logger.debug "Pages for lang #{lang}, #{files}"
+        Log.debug { "Pages for lang #{lang}, #{files}" }
         multilang = BeulogueMultilang.new
 
         elapsed_time = Time.measure do
@@ -38,7 +38,7 @@ module Beulogue
           Beulogue::Pipeline::RSS.write(@config, pagesToWrite, "")
         end
 
-        Beulogue.logger.info "Site for language #{lang} (#{files.size} pages) built in #{elapsed_time.total_milliseconds.round(2)}ms."
+        Log.info { "Site for language #{lang} (#{files.size} pages) built in #{elapsed_time.total_milliseconds.round(2)}ms." }
       end
 
       private def get_page(f : Path, lang : String, multilang : BeulogueMultilang)
@@ -46,8 +46,8 @@ module Beulogue
           content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd, @config.dev_mode)
           Beulogue::Pipeline::Page.write(@renderer, content, multilang)
         rescue ex
-          Beulogue.logger.error "Failed to process #{f}"
-          Beulogue.logger.debug ex.message
+          Log.error { "Failed to process #{f}" }
+          Log.debug { ex.message }
           nil
         end
       end
@@ -65,8 +65,8 @@ module Beulogue
               begin
                 content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @cwd, @config.dev_mode)
               rescue ex
-                Beulogue.logger.error "Failed to process #{f}"
-                Beulogue.logger.debug ex.message
+                Log.error { "Failed to process #{f}" }
+                Log.debug { ex.message }
               end
 
               if !content.nil?
@@ -82,7 +82,7 @@ module Beulogue
         end
 
         contentsPerLanguage.each do |lang, contents|
-          Beulogue.logger.debug "Pages for lang #{lang}, #{contents}"
+          Log.debug { "Pages for lang #{lang}, #{contents}" }
 
           elapsed_time = Time.measure do
             pages = contents.map do |content|
@@ -99,7 +99,7 @@ module Beulogue
 
           times[lang] = times[lang] + elapsed_time.total_milliseconds
 
-          Beulogue.logger.info "Site for language #{lang} (#{contents.size} pages) built in #{times[lang].round(2)}ms."
+          Log.info { "Site for language #{lang} (#{contents.size} pages) built in #{times[lang].round(2)}ms." }
         end
 
         Beulogue::Pipeline::Redirection.write(@config)
@@ -107,7 +107,7 @@ module Beulogue
 
       def run
         if @config.targetDir.nil?
-          Beulogue.logger.fatal "Can't find target directory"
+          Log.fatal { "Can't find target directory" }
 
           exit
         else
@@ -117,11 +117,11 @@ module Beulogue
             begin
               files = files + Beulogue::Pipeline::Walker.run(@cwd, "drafts")
             rescue
-              Beulogue.logger.warn "Can't open folder: drafts/"
+              Log.warn { "Can't open folder: drafts/" }
             end
           end
 
-          Beulogue.logger.debug files.inspect
+          Log.debug { files.inspect }
 
           if @config.languages.size > 1
             self.runMultiLanguages files

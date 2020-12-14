@@ -2,7 +2,7 @@ module Beulogue
   module Commands
     class Version
       def self.run
-        Beulogue.logger.info "beulogue v#{VERSION}"
+        Log.info { "beulogue v#{VERSION}" }
 
         exit
       end

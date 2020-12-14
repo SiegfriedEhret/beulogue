@@ -18,8 +18,8 @@ module Beulogue
       begin
         @tag = env.get_template "tag.html"
       rescue ex
-        Beulogue.logger.warn "Failed to load tag page template."
-        Beulogue.logger.debug ex.message
+        Log.warn { "Failed to load tag page template." }
+        Log.debug { ex.message }
       end
 
       @baseModel = {
@@ -37,7 +37,7 @@ module Beulogue
     def renderList(content : Hash)
       model = @baseModel.merge(content)
 
-      Beulogue.logger.debug "Writing list for lang #{model["language"]}: #{model}"
+      Log.debug { "Writing list for lang #{model["language"]}: #{model}" }
 
       html = @list.render model
     end
@@ -45,7 +45,7 @@ module Beulogue
     def renderPage(content : Hash)
       model = @baseModel.merge(content)
 
-      Beulogue.logger.debug "Writing page: #{model}"
+      Log.debug { "Writing page: #{model}" }
 
       html = @page.render model
     end
@@ -53,7 +53,7 @@ module Beulogue
     def renderTag(content : Hash)
       model = @baseModel.merge(content)
 
-      Beulogue.logger.debug "Writing tag page: #{model}"
+      Log.debug { "Writing tag page: #{model}" }
 
       html = @tag.render model
     end
