@@ -1,8 +1,18 @@
 require "html"
 require "markd"
 require "xml"
-require "../objects/*"
-require "../pipeline/*"
+require "../objects/content"
+require "../objects/front-matter"
+require "../objects/multilang"
+require "../objects/page"
+require "../objects/renderer"
+require "./converter"
+require "./writer-list"
+require "./writer-page"
+require "./writer-redirection"
+require "./writer-rss"
+require "./writer-tag"
+require "./walker"
 
 module Beulogue
   module Pipeline

@@ -1,3 +1,5 @@
+require "../objects/list"
+
 module Beulogue
   module Pipeline
     class Tag

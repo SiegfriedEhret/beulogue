@@ -1,6 +1,7 @@
 require "emoji"
 require "markd"
 require "./content"
+require "./parser"
 
 module Beulogue
   class BeuloguePage
