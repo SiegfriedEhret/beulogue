@@ -5,27 +5,6 @@ require "./commands/*"
 module Beulogue
   DEFAULT_COMMAND = "build"
 
-  def self.showHelp
-    Log.info { <<-HELP
-      beulogue [<command>] [<options>]
-
-      Commands:
-          build     Build the site in the current working directory (default)
-          help      Show help
-          version   Print the current version of beulogue.
-
-      Options:
-          -dev, --development   Includes drafts, use localhost url
-          -d, --debug           Show logs
-          -h, --help            Show help
-
-      More info: https://github.com/SiegfriedEhret/beulogue/
-      HELP
- }
-
-    exit 0
-  end
-
   def self.run
     OptionParser.parse do |parser|
       cwd = Dir.current
@@ -34,7 +13,7 @@ module Beulogue
       parser.banner = "Usage: beulogue [command] [flags]"
       parser.on("-d", "--debug", "Print debug logs.") { Log.setup :debug }
       parser.on("-dev", "--development", "Use dev mode (empty base url for development, includes drafts)") { dev_mode = true }
-      parser.on("-h", "--help", "Show help") { self.showHelp }
+      parser.on("-h", "--help", "Show help") { Commands::Help.run }
 
       Log.debug { "Working directory: #{cwd}" }
 
@@ -49,7 +28,7 @@ module Beulogue
         when "build"
           Commands::Build.run(cwd, dev_mode)
         when "help"
-          self.showHelp
+          Commands::Help.run
         when "version"
           Commands::Version.run
         end
