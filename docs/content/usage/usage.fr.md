@@ -10,6 +10,7 @@ Ajoutez `beulogue` à votre `PATH` puis lancez `beulogue` !
 Les commandes disponibles sont:
 
 - `beulogue` ou `beulogue build` pour construire le site.
+- `beulogue init <name>` pour créer une base de site (dans le répertoire `<name>`, ou le répertoire courant).
 - `beulogue help` pour afficher l'aide.
 - `beulogue version` pour afficher la version.
 

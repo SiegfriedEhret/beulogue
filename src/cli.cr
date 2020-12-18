@@ -29,6 +29,8 @@ module Beulogue
           Commands::Build.run(cwd, dev_mode)
         when "help"
           Commands::Help.run
+        when "init"
+          Commands::Init.new(args[1..-1])
         when "version"
           Commands::Version.run
         end

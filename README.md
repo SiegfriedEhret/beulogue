@@ -28,6 +28,7 @@ Add `beulogue` to your `PATH` and run `beulogue` !
 Here are the possible commands:
 
 - `beulogue` or `beulogue build` to build the site.
+- `beulogue init <name>` to generate a very basic site (in the `<name>` folder, or current directory).
 - `beulogue help` to show the help.
 - `beulogue version` to show the the version.
 
