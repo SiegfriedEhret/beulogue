@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [5.2.2](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.2.2)
+
+:bug: fix bug for ref
+
 ## [5.2.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.2.1)
 
 - :gift: add init command
