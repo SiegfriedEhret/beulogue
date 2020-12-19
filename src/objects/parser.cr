@@ -12,9 +12,9 @@ module Beulogue
     end
 
     def parse(content : BeulogueContent, multilang : Array(Hash(String, String)))
-      @env.functions["ref"] = fn_ref(content, multilang)
-
-      @env.from_string(content.content).render
+      env = Crinja.new(@env)
+      env.functions["ref"] = fn_ref(content, multilang)
+      env.from_string(content.content).render
       # begin
       # rescue
       #   puts "Failed to read #{content.fromPath}"
