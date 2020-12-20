@@ -7,6 +7,7 @@ module Beulogue
 
           Commands:
               build     Build the site in the current working directory (default)
+              init      Initialize a simple site
               help      Show help
               version   Print the current version of beulogue.
 
