@@ -28,3 +28,13 @@ First of all, `beulogue` is licensed under the [GNU General Public License v3](h
   * :construction: `:construction:` for work in progress
   * :checkered_flag: `:checkered_flag:` when bumping version number
   * :truck: `:truck:` when moving files
+
+## Versioning
+
+`beulogue` follows my own FibVer (Fibonacci Versioning):
+
+* Basically, it follows Semantic Versioning.
+* You have to use Fibonacci suite numbers when you bump the version.
+* Until you bump a major version, don't reset patch. For a version, it gives an idea of how many features and bugfixes you made.
+
+I'll spec that one day...
