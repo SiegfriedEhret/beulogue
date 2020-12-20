@@ -16,6 +16,9 @@ build-and-run: build docs ## Build and run in docs
 deploy: docs ## Deploy using Apex Up
 	up deploy production
 
+docker-build: ## Build docker image
+	docker build -t siegfriedehret/beulogue .
+
 git-push: check-env ## Push all the things
 	git push ;\
 	git tag release-$(VERSION) ;\
