@@ -16,7 +16,7 @@ module Beulogue
               -d, --debug           Show logs
               -h, --help            Show help
 
-          More info: https://github.com/SiegfriedEhret/beulogue/
+          More info: https://beulogue.ehret.me
           HELP
  }
 
