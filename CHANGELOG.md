@@ -1,8 +1,12 @@
 # beulogue releases
 
+## [5.2.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.2.3)
+
+- :bug: fix template functions
+
 ## [5.2.2](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.2.2)
 
-:bug: fix bug for ref
+- :bug: fix bug for ref
 
 ## [5.2.1](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.2.1)
 
