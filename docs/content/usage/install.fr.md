@@ -13,6 +13,16 @@ weight: 1.1
 
 Allez à la page des [livraisons](https://github.com/SiegfriedEhret/beulogue/releases) !
 
+## :whale: Utiliser l'image Docker
+
+`beulogue` est disponible sous la forme d'une [image Docker](https://hub.docker.com/r/siegfriedehret/beulogue).
+
+Pour le lancer (`help` est la commande par défaut):
+
+```shell
+docker run --rm -it siegfriedehret/beulogue
+```
+
 ## Construire depuis les sources
 
 - Clonez ce dépôt.

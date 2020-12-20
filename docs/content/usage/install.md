@@ -8,10 +8,20 @@ weight: 1.1
 ## Download binaries
 
 - Linux: :white_check_mark:
-- MacOS: :construction: (MacOS versions will always come later than the Linux one)
+- MacOS: :white_check_mark:
 - Windows: :x:
 
 Go to the [release page](https://github.com/SiegfriedEhret/beulogue/releases) !
+
+## :whale: Use the Docker image
+
+`beulogue` is available as a [Docker image](https://hub.docker.com/r/siegfriedehret/beulogue).
+
+Run it (`help` is the default command):
+
+```shell
+docker run --rm -it siegfriedehret/beulogue
+```
 
 ## Build from source
 
