@@ -27,7 +27,7 @@ module Beulogue
     property sortPagesOrder : String?
 
     # Injected
-    property cwd : String?
+    property wd : String?
     property mode : Modes?
     property targetDir : String?
     property sortBy : PagesSortBy?

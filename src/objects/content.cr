@@ -3,14 +3,14 @@ module Beulogue
     getter base : String
     getter content : String
     getter contentPath : String
-    getter cwd : Path
+    getter wd : Path
     getter fromPath : Path
     getter toPath : Path
     getter toURL : String
     getter lang : String
     getter frontMatter : BeulogueFrontMatter
 
-    def initialize(@fromPath : Path, pathLang : String, contentLang : String, @cwd : Path, dev_mode : Bool | Nil)
+    def initialize(@fromPath : Path, pathLang : String, contentLang : String, @wd : Path, dev_mode : Bool | Nil)
       frontMatterDelimiter = "---"
       frontMatterDelimiterCount = 0
       frontMatter = ""
@@ -42,14 +42,14 @@ module Beulogue
         folderName = "drafts"
       end
 
-      @contentPath = fromPath.to_s.sub(@cwd.join(folderName).to_s, "")
+      @contentPath = fromPath.to_s.sub(@wd.join(folderName).to_s, "")
       @base = fromPath.to_s.sub(suffix, "")
 
       tempToPath = fromPath.to_s.sub("/#{folderName}/", "/public/#{pathLang}/").gsub("//", "/")
 
       @toPath = Path[tempToPath.sub(suffix, ".html")]
 
-      @toURL = @toPath.to_s.sub(@cwd.join("public").to_s, "")
+      @toURL = @toPath.to_s.sub(@wd.join("public").to_s, "")
     end
   end
 end

@@ -9,7 +9,7 @@ module Beulogue
 
     def initialize(config : BeulogueConfig)
       env = Crinja.new
-      env.loader = Crinja::Loader::FileSystemLoader.new(Path[Dir.current].join("templates").to_s)
+      env.loader = Crinja::Loader::FileSystemLoader.new(Path[config.wd || Dir.current].join("templates").to_s)
 
       @list = env.get_template("list.html")
       @page = env.get_template("page.html")
@@ -24,7 +24,7 @@ module Beulogue
 
       @baseModel = {
         "beulogue" => {
-          "cwd"     => config.cwd,
+          "wd"      => config.wd,
           "version" => VERSION,
         },
         "site" => {

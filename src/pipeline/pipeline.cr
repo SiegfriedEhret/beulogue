@@ -17,8 +17,8 @@ require "./walker"
 module Beulogue
   module Pipeline
     class Pipeline
-      def initialize(cwd : String, @config : BeulogueConfig)
-        @cwd = Path[cwd]
+      def initialize(wd : String, @config : BeulogueConfig)
+        @wd = Path[wd]
         @renderer = Renderer.new(@config)
       end
 
@@ -53,7 +53,7 @@ module Beulogue
 
       private def get_page(f : Path, lang : String, multilang : BeulogueMultilang)
         begin
-          content = Beulogue::Pipeline::Converter.convert(f, "", lang, @cwd, @config.dev_mode)
+          content = Beulogue::Pipeline::Converter.convert(f, "", lang, @wd, @config.dev_mode)
           Beulogue::Pipeline::Page.write(@renderer, content, multilang)
         rescue ex
           Log.error { "Failed to process #{f}" }
@@ -73,7 +73,7 @@ module Beulogue
           elapsed_time = Time.measure do
             contents = filesForLanguage.map do |f|
               begin
-                content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @cwd, @config.dev_mode)
+                content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @wd, @config.dev_mode)
               rescue ex
                 Log.error { "Failed to process #{f}" }
                 Log.debug { ex.message }
@@ -121,11 +121,11 @@ module Beulogue
 
           exit
         else
-          files = Beulogue::Pipeline::Walker.run(@cwd)
+          files = Beulogue::Pipeline::Walker.run(@wd)
 
           if @config.dev_mode == true
             begin
-              files = files + Beulogue::Pipeline::Walker.run(@cwd, "drafts")
+              files = files + Beulogue::Pipeline::Walker.run(@wd, "drafts")
             rescue
               Log.warn { "Can't open folder: drafts/" }
             end

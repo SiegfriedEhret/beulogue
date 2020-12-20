@@ -5,20 +5,20 @@ module Beulogue
   VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}
 
   module Conf
-    def self.load(cwd : String, dev_mode : Bool)
-      cwdPath = Path[cwd]
-      configPath = cwdPath.join("beulogue.yml")
+    def self.load(wd : String, dev_mode : Bool)
+      wdPath = Path[wd]
+      configPath = wdPath.join("beulogue.yml")
 
       Log.debug { "Reading config at: #{configPath.to_s}" }
 
       config = BeulogueConfig.from_yaml(File.read(configPath))
-      config.cwd = cwd
+      config.wd = wd
 
       if dev_mode
         config.mode = Modes::Dev
       end
 
-      config.targetDir = cwdPath.join("public").to_s
+      config.targetDir = wdPath.join("public").to_s
 
       if config.sortPagesBy && config.sortPagesBy == "weight"
         config.sortBy = PagesSortBy::Weight

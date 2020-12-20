@@ -65,7 +65,7 @@ module Beulogue
           lang = /^.*\.([\w\-]+)\.md$/.match(realFilepath.to_s).try &.[1] || ""
 
           if File.exists?(realFilepath)
-            refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.cwd, false)
+            refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.wd, false)
             model = BeuloguePage.new(refContent, Array(Hash(String, String)).new)
 
             link_url = if multilang.size == 0 || multilang[0]["language"] == model.language
