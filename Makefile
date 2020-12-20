@@ -43,10 +43,14 @@ release-archive: build-release check-target ## Make a tar.gz archive from the bi
 
 release: release-archive git-push ## Release beulogue
 
-docs: ## Run in docs
+beulogue: ## Run beulogue
 	cd docs ;\
 	beulogue ;\
-	cp templates/*.css public/
+
+docs-static: ## Bidouille static files
+	cp docs/templates/*.css docs/public/
+
+docs: beulogue docs-static ## Run in docs
 
 update: ## Update dependencies
 	shards update
