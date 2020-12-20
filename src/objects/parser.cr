@@ -3,16 +3,12 @@ require "./content"
 
 module Beulogue
   class BeulogueParser
-    def initialize
-      @env = Crinja.new
-      @env.functions["dailymotion"] = fn_dailymotion
-      @env.functions["gist"] = fn_gist
-      @env.functions["vimeo"] = fn_vimeo
-      @env.functions["youtube"] = fn_youtube
-    end
-
-    def parse(content : BeulogueContent, multilang : Array(Hash(String, String)))
-      env = Crinja.new(@env)
+    def self.parse(content : BeulogueContent, multilang : Array(Hash(String, String)))
+      env = Crinja.new
+      env.functions["dailymotion"] = fn_dailymotion
+      env.functions["gist"] = fn_gist
+      env.functions["vimeo"] = fn_vimeo
+      env.functions["youtube"] = fn_youtube
       env.functions["ref"] = fn_ref(content, multilang)
       env.from_string(content.content).render
       # begin
@@ -22,7 +18,7 @@ module Beulogue
       # end
     end
 
-    def fn_dailymotion
+    private def self.fn_dailymotion
       Crinja.function(arguments) do
         if arguments.varargs.size != 1
           puts "(function:dailymotion) Received #{arguments.varargs.size} arguments, expected: 1."
@@ -42,7 +38,7 @@ module Beulogue
       end
     end
 
-    def fn_gist
+    private def self.fn_gist
       Crinja.function(arguments) do
         if arguments.varargs.size != 2
           puts "(function:gist) Received #{arguments.varargs.size} arguments, expected: 2."
@@ -56,7 +52,7 @@ module Beulogue
       end
     end
 
-    def fn_ref(content : BeulogueContent, multilang : Array(Hash(String, String)))
+    private def self.fn_ref(content : BeulogueContent, multilang : Array(Hash(String, String)))
       Crinja.function(arguments) do
         if arguments.varargs.size != 1
           puts "(function:ref) Received #{arguments.varargs.size} arguments, expected: 1."
@@ -90,7 +86,7 @@ module Beulogue
       end
     end
 
-    def fn_vimeo
+    private def self.fn_vimeo
       Crinja.function(arguments) do
         if arguments.varargs.size != 1
           puts "(vimeo) Received #{arguments.varargs.size} arguments, expected: 1."
@@ -109,7 +105,7 @@ module Beulogue
       end
     end
 
-    def fn_youtube
+    private def self.fn_youtube
       Crinja.function(arguments) do
         if arguments.varargs.size != 1
           puts "(youtube) Received: #{arguments.varargs.size} arguments, expected: 1."
