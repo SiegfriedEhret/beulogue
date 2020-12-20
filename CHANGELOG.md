@@ -1,5 +1,10 @@
 # beulogue releases
 
+## [8.0.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-8.0.0)
+
+- :gift: allow to pass a working directory (-w)
+- Breaking change: no `cwd` anymore, it's `wd`!
+
 ## [5.2.3](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-5.2.3)
 
 - :bug: fix template functions
