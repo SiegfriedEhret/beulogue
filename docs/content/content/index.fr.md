@@ -5,11 +5,20 @@ description: Tous sur les contenus dans beulogue
 weight: 2.0
 ---
 
-Les contenus doivent se trouver dans le dossier `content` de votre site. Le format attendu est [markdown](https://fr.wikipedia.org/wiki/Markdown).
+## Où
 
-Les fichiers de sortie auront le même nom que vos fichiers markdown. Ils se terminent par `.html` au lieu de `.md`, bien entendu.
+Les contenus doivent se trouver dans le dossier `content` de votre site.
 
-Vous pouvez injecter du contenu dans vos modèles de page
-You can inject content in your list template using a `_index.md` (for your content language) or `_index.LANG.md` for a given `LANG` (example: `_index.fr.md` for french).
+## Format
+
+Le format attendu est [markdown (`.md`)](https://fr.wikipedia.org/wiki/Markdown) ou [gemini (`.gmi`)](https://gemini.circumlunar.space/docs/specification.html) (voir chapitre 5).
+
+## Résultat
+
+Les fichiers de sortie auront le même nom que vos fichiers markdown ou gemini. Ils se terminent par `.html` au lieu de `.md` ou `.gmi`, bien entendu.
+
+## Extra
+
+Vous pouvez injecter du contenu dans vos modèles de page en utilisant un fichier `_index.md` (pour la langue principale) ou `_index.LANG.md` pour une langue `LANG` donnée (par exemple: `_index.fr.md` pour le français). Idem pour un fichier `.gmi` !
 
 [⬅️ configuration](/fr/usage/configuration.html) || [matière liminaire ➡️](/fr/content/front-matter.html)
