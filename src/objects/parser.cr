@@ -3,6 +3,15 @@ require "./content"
 
 module Beulogue
   class BeulogueParser
+    def self.transform_gmi(input : String)
+      input
+        .split("\n")
+        .map { |e| e
+          .gsub(/^=> ?(\S+) (.+)$/) { |s, m| "* [#{m[2]}](#{m[1]})" }
+          .gsub(/^=> ?(.+)$/) { |s, m| "* <#{m[1]}>" } }
+        .join("\n")
+    end
+
     def self.parse(content : BeulogueContent, multilang : Array(Hash(String, String)))
       env = Crinja.new
       env.functions["dailymotion"] = fn_dailymotion
@@ -10,7 +19,12 @@ module Beulogue
       env.functions["vimeo"] = fn_vimeo
       env.functions["youtube"] = fn_youtube
       env.functions["ref"] = fn_ref(content, multilang)
-      env.from_string(content.content).render
+
+      if content.is_gmi
+        env.from_string(transform_gmi(content.content)).render
+      else
+        env.from_string(content.content).render
+      end
       # begin
       # rescue
       #   puts "Failed to read #{content.fromPath}"
@@ -56,13 +70,13 @@ module Beulogue
       Crinja.function(arguments) do
         if arguments.varargs.size != 1
           puts "(function:ref) Received #{arguments.varargs.size} arguments, expected: 1."
-          puts "  usage: {{ ref(\"markdown_filepath\") }}"
+          puts "  usage: {{ ref(\"markdown_filepath.md\") }} or {{ ref(\"gmi_filepath.gmi\") }}"
         else
           filepath = arguments.varargs.shift.as_s
           fromPath = content.fromPath
           url = content.toURL
           realFilepath = fromPath.parent.join(filepath).normalize
-          lang = /^.*\.([\w\-]+)\.md$/.match(realFilepath.to_s).try &.[1] || ""
+          lang = /^.*\.([\w\-]+)\.(md|gmi)$/.match(realFilepath.to_s).try &.[1] || ""
 
           if File.exists?(realFilepath)
             refContent = BeulogueContent.new(realFilepath, lang, content.lang, content.wd, false)

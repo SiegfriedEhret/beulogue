@@ -1,7 +1,7 @@
 require "yaml"
 
 module Beulogue
-  class BeulogueFrontMatter
+  struct BeulogueFrontMatter
     include YAML::Serializable
 
     property title : String

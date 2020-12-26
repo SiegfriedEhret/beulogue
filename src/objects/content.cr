@@ -1,4 +1,9 @@
+require "./front-matter"
+
 module Beulogue
+  SUFFIX_MARKDOWN = ".md"
+  SUFFIX_GMI      = ".gmi"
+
   class BeulogueContent
     getter base : String
     getter content : String
@@ -9,6 +14,8 @@ module Beulogue
     getter toURL : String
     getter lang : String
     getter frontMatter : BeulogueFrontMatter
+    getter is_markdown : Bool
+    getter is_gmi : Bool
 
     def initialize(@fromPath : Path, pathLang : String, contentLang : String, @wd : Path, dev_mode : Bool | Nil)
       frontMatterDelimiter = "---"
@@ -32,7 +39,16 @@ module Beulogue
       @content = content
       @lang = contentLang
 
-      suffix = ".md"
+      suffix = SUFFIX_MARKDOWN
+      @is_markdown = true
+      @is_gmi = false
+
+      if fromPath.to_s.ends_with? SUFFIX_GMI
+        suffix = SUFFIX_GMI
+        @is_markdown = false
+        @is_gmi = true
+      end
+
       if fromPath.to_s.ends_with?(".#{pathLang}#{suffix}")
         suffix = ".#{pathLang}#{suffix}"
       end
