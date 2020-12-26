@@ -43,6 +43,9 @@ release-archive: build-release check-target ## Make a tar.gz archive from the bi
 
 release: release-archive git-push ## Release beulogue
 
+test: ## Run tests
+	crystal spec
+
 beulogue: ## Run beulogue
 	cd docs ;\
 	beulogue ;\
