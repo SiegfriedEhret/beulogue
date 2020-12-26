@@ -1,5 +1,9 @@
 # beulogue releases
 
+## [8.1.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-8.1.0)
+
+- :gift: add basic support for gmi files
+
 ## [8.0.0](https://github.com/SiegfriedEhret/beulogue/releases/tag/release-8.0.0)
 
 - :gift: allow to pass a working directory (-w)
