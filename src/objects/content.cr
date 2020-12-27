@@ -15,7 +15,7 @@ module Beulogue
     getter lang : String
     getter frontMatter : BeulogueFrontMatter
     getter is_markdown : Bool
-    getter is_gmi : Bool
+    getter is_gemini : Bool
 
     def initialize(@fromPath : Path, pathLang : String, contentLang : String, @wd : Path, dev_mode : Bool | Nil)
       frontMatterDelimiter = "---"
@@ -41,12 +41,12 @@ module Beulogue
 
       suffix = SUFFIX_MARKDOWN
       @is_markdown = true
-      @is_gmi = false
+      @is_gemini = false
 
       if fromPath.to_s.ends_with? SUFFIX_GMI
         suffix = SUFFIX_GMI
         @is_markdown = false
-        @is_gmi = true
+        @is_gemini = true
       end
 
       if fromPath.to_s.ends_with?(".#{pathLang}#{suffix}")

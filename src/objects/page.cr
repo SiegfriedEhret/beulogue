@@ -16,6 +16,8 @@ module Beulogue
     getter title : String
     getter url : String
     getter weight : Float64
+    getter is_markdown : Bool
+    getter is_gemini : Bool
 
     def initialize(content : BeulogueContent, multilang : Array(Hash(String, String)))
       @contentPath = content.contentPath
@@ -28,6 +30,8 @@ module Beulogue
       @title = content.frontMatter.title
       @url = content.toURL
       @weight = content.frontMatter.weight || 1.0
+      @is_markdown = content.is_markdown
+      @is_gemini = content.is_gemini
       @content = Markd.to_html(Emoji.emojize(BeulogueParser.parse(content, multilang) || ""))
     end
 
@@ -42,7 +46,12 @@ module Beulogue
         "multilang"     => @multilang.sort_by { |e| e["language"] },
         "tags"          => tags,
         "title"         => @title,
-        "url"           => @url,
+        "type"          => if @is_gemini
+          "gemini"
+        else
+          "markdown"
+        end,
+        "url" => @url,
       }
 
       model

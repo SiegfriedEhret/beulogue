@@ -3,7 +3,7 @@ require "./content"
 
 module Beulogue
   class BeulogueParser
-    def self.transform_gmi(input : String)
+    def self.transform_gemini(input : String)
       input
         .split("\n")
         .map { |e| e
@@ -20,8 +20,8 @@ module Beulogue
       env.functions["youtube"] = fn_youtube
       env.functions["ref"] = fn_ref(content, multilang)
 
-      if content.is_gmi
-        env.from_string(transform_gmi(content.content)).render
+      if content.is_gemini
+        env.from_string(transform_gemini(content.content)).render
       else
         env.from_string(content.content).render
       end
