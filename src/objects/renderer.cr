@@ -37,7 +37,7 @@ module Beulogue
     def renderList(content : Hash)
       model = @baseModel.merge(content)
 
-      Log.debug { "Writing list for lang #{model["language"]}: #{model}" }
+      Log.debug { "Writing list for lang #{model["language"]}" }
 
       html = @list.render model
     end
@@ -45,7 +45,7 @@ module Beulogue
     def renderPage(content : Hash)
       model = @baseModel.merge(content)
 
-      Log.debug { "Writing page: #{model}" }
+      Log.debug { "Writing page: #{model["multilang"]}" }
 
       html = @page.render model
     end

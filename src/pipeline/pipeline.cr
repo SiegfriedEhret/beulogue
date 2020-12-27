@@ -33,7 +33,7 @@ module Beulogue
       def runSingleLanguage(files : Array(Path))
         lang = @config.languages[0]
 
-        Log.debug { "Pages for lang #{lang}, #{files}" }
+        Log.debug { "Pages for lang #{lang}, #{files.size}" }
         multilang = BeulogueMultilang.new
 
         elapsed_time = Time.measure do
@@ -56,7 +56,7 @@ module Beulogue
           content = Beulogue::Pipeline::Converter.convert(f, "", lang, @wd, @config.dev_mode)
           Beulogue::Pipeline::Page.write(@renderer, content, multilang)
         rescue ex
-          Log.error { "Failed to process #{f}" }
+          Log.error { "Failed to process #{f}: #{ex.message}" }
           Log.debug { ex.message }
           nil
         end
@@ -75,7 +75,7 @@ module Beulogue
               begin
                 content = Beulogue::Pipeline::Converter.convert(f, lang, lang, @wd, @config.dev_mode)
               rescue ex
-                Log.error { "Failed to process #{f}" }
+                Log.error { "Failed to process #{f}: #{ex.message}" }
                 Log.debug { ex.message }
               end
 
@@ -92,7 +92,7 @@ module Beulogue
         end
 
         contentsPerLanguage.each do |lang, contents|
-          Log.debug { "Pages for lang #{lang}, #{contents}" }
+          Log.debug { "Pages for lang #{lang}, #{contents.size}" }
 
           elapsed_time = Time.measure do
             pages = contents.map do |content|
