@@ -19,6 +19,9 @@ deploy: docs ## Deploy using Apex Up
 docker-build: ## Build docker image
 	docker build -t siegfriedehret/beulogue .
 
+docker-build-test: ## Build docker image for test
+	docker build -t siegfriedehret/beulogue-test .
+
 git-push: check-env ## Push all the things
 	git push ;\
 	git tag release-$(VERSION) ;\
