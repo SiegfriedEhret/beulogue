@@ -62,10 +62,10 @@ module Beulogue
       @base = fromPath.to_s.sub(suffix, "")
 
       tempToPath = fromPath.to_s.sub("/#{folderName}/", "/public/#{pathLang}/").gsub("//", "/")
-
       @toPath = Path[tempToPath.sub(suffix, ".html")]
 
-      @toURL = @toPath.to_s.sub(@wd.join("public").to_s, "")
+      path_to_remove = @wd.join("public").to_s.sub("./", "")
+      @toURL = @toPath.to_s.sub(path_to_remove, "")
     end
   end
 end
