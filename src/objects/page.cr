@@ -18,6 +18,7 @@ module Beulogue
     getter weight : Float64
     getter is_markdown : Bool
     getter is_gemini : Bool
+    getter is_draft : Bool
 
     def initialize(content : BeulogueContent, multilang : Array(Hash(String, String)))
       @contentPath = content.contentPath
@@ -32,6 +33,7 @@ module Beulogue
       @weight = content.frontMatter.weight || 1.0
       @is_markdown = content.is_markdown
       @is_gemini = content.is_gemini
+      @is_draft = content.is_draft
       @content = Markd.to_html(Emoji.emojize(BeulogueParser.parse(content, multilang) || ""))
     end
 
@@ -42,11 +44,16 @@ module Beulogue
         "date"          => @date,
         "dateFormatted" => @date.to_s("%F"),
         "description"   => @description,
+        "is_draft"      => @is_draft,
         "language"      => @language,
         "multilang"     => @multilang.sort_by { |e| e["language"] },
         "tags"          => tags,
-        "title"         => @title,
-        "type"          => if @is_gemini
+        "title"         => if @is_draft
+          "#{@title} (draft)"
+        else
+          @title
+        end,
+        "type" => if @is_gemini
           "gemini"
         else
           "markdown"

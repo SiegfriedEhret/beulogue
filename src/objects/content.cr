@@ -16,6 +16,7 @@ module Beulogue
     getter frontMatter : BeulogueFrontMatter
     getter is_markdown : Bool
     getter is_gemini : Bool
+    getter is_draft : Bool
 
     def initialize(@fromPath : Path, pathLang : String, contentLang : String, @wd : Path, dev_mode : Bool | Nil)
       frontMatterDelimiter = "---"
@@ -56,6 +57,9 @@ module Beulogue
       folderName = "content"
       if dev_mode == true && fromPath.to_s.includes? "/drafts"
         folderName = "drafts"
+        @is_draft = true
+      else
+        @is_draft = false
       end
 
       @contentPath = fromPath.to_s.sub(@wd.join(folderName).to_s, "")
