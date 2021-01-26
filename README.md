@@ -43,5 +43,5 @@ Licensed under the [GPLv3 license](./LICENSE).
 
 ## Contributing
 
-Check the [CONTRIBUTING.md](./CONTRIBUTING.md) document for some info.
+Check [CONTRIBUTING.md](./CONTRIBUTING.md) for some info.
 
