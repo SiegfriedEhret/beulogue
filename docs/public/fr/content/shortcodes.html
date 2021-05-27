@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/fr">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Raccourcis
+					<span class="nav-lang">
+						
+						<a href="/en/content/shortcodes.html">en</a>
+						
+						<a href="/fr/content/shortcodes.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Les raccourcis (en anglais «shortcodes») sont des petits code à utiliser dans vos contenus.</p>
+<h2>Contenus internes</h2>
+<ul>
+<li><strong>Référence</strong>: utiliser <code>{{ ref(&quot;chemin/vers/autre-contenu.md&quot;) }}</code> pour générer un lien vers cet autre contenu.
+<ul>
+<li>⚠️ si vous créez une boucle, beulogue va planter.</li>
+<li>beulogue affichera un message si une référence pointe vers un contenu inexistant.</li>
+</ul>
+</li>
+</ul>
+<h2>Contenus externes</h2>
+<ul>
+<li><strong>Dailymotion</strong>: utiliser <code>{{ dailymotion(&quot;12345&quot;) }}</code> pour intégrer une vidéo depuis <a href="https://www.dailymotion.com/">Dailymotion</a>.</li>
+<li><strong>GitHub Gist</strong>: utiliser <code>{{ gist(&quot;beulogue&quot;, &quot;123456&quot;) }}</code>pour intégrer un élément depuis <a href="https://help.github.com/en/articles/about-gists">Gist</a>.</li>
+<li><strong>vimeo</strong>: utiliser <code>{{ vimeo(&quot;12345&quot;) }}</code> pour intégrer une vidéo depuis <a href="https://www.vimeo.com/">Vimeo</a>.</li>
+<li><strong>YouTube</strong>: utiliser <code>{{ youtube(&quot;12345&quot;) }}</code> pour intégrer une vidéo depuis <a href="https://www.youtube.com/">YouTube</a>.</li>
+</ul>
+<p><a href="/fr/content/front-matter.html">⬅️ matière liminaire</a> || <a href="/fr/content/emojis.html">emojis ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/content/shortcodes.fr.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

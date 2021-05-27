@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/fr">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Structure
+					<span class="nav-lang">
+						
+						<a href="/en/usage/structure.html">en</a>
+						
+						<a href="/fr/usage/structure.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Votre site doit avoir la structure suivante:</p>
+<pre><code>my-website
+├── beulogue.yml
+├── content
+│   ├── 2019
+│   │   ├── 05
+│   │   │   └── may.md
+│   │   └── jtutu.md
+│   ├── about.fr.md
+│   ├── about.jp.md
+│   └── about.md
+├── drafts
+│   └── next-article.md
+└── templates
+    ├── list.html
+    ├── page.html
+    └── tags.html (optional)
+</code></pre>
+<ul>
+<li><code>beulogue.yml</code> est un fichier de configuration nécessaire.</li>
+<li><code>content/</code> est le répertoire contenant toutes vos pages.</li>
+<li><code>drafts/</code> est le répertoire contenant les brouillons (pris en compte en utilisant <code>beulogue -dev</code>)</li>
+<li><code>templates/</code> est le répertoire avec vos modèles HTML.</li>
+</ul>
+<p><a href="/fr/usage/usage.html">⬅️ utilisation</a> || <a href="/fr/usage/configuration.html">configuration ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/usage/structure.fr.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

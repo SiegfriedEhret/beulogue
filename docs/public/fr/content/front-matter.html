@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/fr">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Matière liminaire
+					<span class="nav-lang">
+						
+						<a href="/en/content/front-matter.html">en</a>
+						
+						<a href="/fr/content/front-matter.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Vous pouvez utiliser la matière liminaire (en anglais: front matter) dans vos billets, comme suivant:</p>
+<pre><code>---
+title: Mon titre
+date: 2019-05-07
+description: Une petite description
+tags:
+- news
+orphan: false
+weight: 1.0
+---
+
+# Mon contenu...
+</code></pre>
+<p>La propriété suivante est nécessaire:</p>
+<ul>
+<li><strong>title</strong> (chaîne de caractères): le titre du billet.</li>
+</ul>
+<p>Les propriétés suivantes sont optionnelles mais il vaut mieux les utiliser:</p>
+<ul>
+<li><strong>date</strong> (chaîne de caractères): un point dans le temps, utilisé pour trier les contenus (<a href="https://yaml.org/type/timestamp.html">plus d'information sur le format, en anglais</a>).</li>
+<li><strong>description</strong> (chaîne de caractères): une petite description, utilisée pour le flux rss par exemple.</li>
+</ul>
+<p>Les propriétés suivantes sont optionnelles:</p>
+<ul>
+<li><strong>orphan</strong> (<code>true</code> or <code>false</code>): mettre à <code>true</code> pour que les pages soient construites mais non incluses dans le modèle de page correspondant à la liste.</li>
+<li><strong>tags</strong> (liste de chaînes de caractères): quelques étiquettes pour catégoriser votre billet. Les pages d'étiquettes seront générées à partir du modèle <code>tags.html</code>, ou du modèle de liste <code>list.html</code> si non trouvé.</li>
+<li><strong>weight</strong> (nombre flottant): le poids de la page, peut être utilisé pour le tri des billets. La valeur par défaut est <code>1.0</code>.</li>
+</ul>
+<p><a href="/fr/content/index.html">⬅️ contenu</a> || <a href="/fr/content/shortcodes.html">raccourcis ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/content/front-matter.fr.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

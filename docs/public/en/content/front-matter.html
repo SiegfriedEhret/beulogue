@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/en">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Front matter
+					<span class="nav-lang">
+						
+						<a href="/en/content/front-matter.html">en</a>
+						
+						<a href="/fr/content/front-matter.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>You can use front-matter, like that:</p>
+<pre><code>---
+title: My title
+date: 2019-05-07
+description: A small description
+tags:
+- news
+orphan: false
+weight: 1.0
+---
+
+# My content...
+</code></pre>
+<p>The following property is mandatory:</p>
+<ul>
+<li><strong>title</strong> (string): the title for your content item.</li>
+</ul>
+<p>The following properties are not mandatory but you should set them:</p>
+<ul>
+<li><strong>date</strong> (string): a point in time, used to sort your content items (<a href="https://yaml.org/type/timestamp.html">more info on the format</a>).</li>
+<li><strong>description</strong> (string): a small description, used for the rss feed for example.</li>
+</ul>
+<p>The following properties are optional:</p>
+<ul>
+<li><strong>orphan</strong> (<code>true</code> or <code>false</code>): set to <code>true</code> and your page will be rendered but not included in the list templates.</li>
+<li><strong>tags</strong> (array of string): some tags for your content. Tags pages will be generated from a custom <code>tags.html</code> template or the <code>list.html</code> one.</li>
+<li><strong>weight</strong> (float number): weight of the page, used for sorting. Default is <code>1.0</code>.</li>
+</ul>
+<p><a href="/en/content/index.html">⬅️ content</a> || <a href="/en/content/shortcodes.html">shortcodes ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/content/front-matter.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

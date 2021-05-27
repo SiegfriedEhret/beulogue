@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/en">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Shortcodes
+					<span class="nav-lang">
+						
+						<a href="/en/content/shortcodes.html">en</a>
+						
+						<a href="/fr/content/shortcodes.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Shortcodes are small things that you can use in your contents.</p>
+<h2>Internal contents</h2>
+<ul>
+<li><strong>Reference</strong>: use <code>{{ ref(&quot;path/to/content.md&quot;) }}</code> to generate a link to this content.
+<ul>
+<li>⚠️ if you create a loop, beulogue will crash.</li>
+<li>beulogue will give you a warning if you reference a non existing content.</li>
+</ul>
+</li>
+</ul>
+<h2>External contents</h2>
+<ul>
+<li><strong>Dailymotion</strong>: use <code>{{ dailymotion(&quot;12345&quot;) }}</code> to embed a <a href="https://www.dailymotion.com/">Dailymotion</a> video.</li>
+<li><strong>GitHub Gist</strong>: use <code>{{ gist(&quot;beulogue&quot;, &quot;123456&quot;) }}</code> to embed a <a href="https://help.github.com/en/articles/about-gists">Gist</a>.</li>
+<li><strong>vimeo</strong>: use <code>{{ vimeo(&quot;12345&quot;) }}</code> to embed a <a href="https://www.vimeo.com/">Vimeo</a> video.</li>
+<li><strong>YouTube</strong>: use <code>{{ youtube(&quot;12345&quot;) }}</code> to embed a <a href="https://www.youtube.com/">YouTube</a> video.</li>
+</ul>
+<p><a href="/en/content/front-matter.html">⬅️ front matter</a> || <a href="/en/content/emojis.html">emojis ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/content/shortcodes.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

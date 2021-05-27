@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/en">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Usage
+					<span class="nav-lang">
+						
+						<a href="/en/usage/usage.html">en</a>
+						
+						<a href="/fr/usage/usage.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Add <code>beulogue</code> to your <code>PATH</code> and run <code>beulogue</code> !</p>
+<p>Here are the possible commands:</p>
+<ul>
+<li><code>beulogue</code> or <code>beulogue build</code> to build the site. It uses the current working directory, use <code>-w ./path</code> to work somewhere else.</li>
+<li><code>beulogue init &lt;name&gt;</code> to generate a very basic site (in the <code>&lt;name&gt;</code> folder, or current directory).</li>
+<li><code>beulogue help</code> to show the help.</li>
+<li><code>beulogue version</code> to show the the version.</li>
+</ul>
+<p>Possible flags:</p>
+<ul>
+<li><code>-dev</code> or <code>--development</code>:
+<ul>
+<li>will use an empty <code>base</code> instead of the one given in the configuration file to make local navigation easier</li>
+<li>will add markdown in the <code>drafts/</code> folder</li>
+</ul>
+</li>
+<li><code>-w ./path</code> or <code>--working-directory=./path</code> to set the working directory</li>
+<li><code>-d</code> or <code>--debug</code>: show some logs</li>
+<li><code>-h</code> or <code>--help</code>: show help</li>
+</ul>
+<h2>🐳 With docker</h2>
+<p>To build a website with <a href="https://fishshell.com/">Fish</a>:</p>
+<pre><code class="language-shell">docker run --rm -it -v {$PWD}:/workspace -w /workspace siegfriedehret/beulogue build
+</code></pre>
+<p>Or with bash:</p>
+<pre><code class="language-shell">docker run --rm -it -v S{PWD}:/workspace -w /workspace siegfriedehret/beulogue build
+</code></pre>
+<h2>Templates</h2>
+<p>Protip: some basic templates just for you ! Please go to:</p>
+<ul>
+<li><a href="https://github.com/SiegfriedEhret/beulogue-templates/">github</a></li>
+<li><a href="https://git.sr.ht/~siegfriedehret/beulogue-templates">sourcehut</a></li>
+<li>(outdated) <a href="https://bitbucket.org/siegfriedehret/beulogue-templates/">bitbucket</a></li>
+<li>(outdated) <a href="https://codeberg.org/SiegfriedEhret/beulogue-templates/">codeberg</a></li>
+</ul>
+<p><a href="/en/usage/install.html">⬅️ install</a> || <a href="/en/usage/structure.html">structure ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/usage/usage.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

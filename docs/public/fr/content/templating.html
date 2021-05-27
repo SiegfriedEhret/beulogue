@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/fr">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Modèles de pages
+					<span class="nav-lang">
+						
+						<a href="/en/content/templating.html">en</a>
+						
+						<a href="/fr/content/templating.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Vous devez fournir 2 fichiers html, qui doivent être placés dans le dossier <code>templates</code> de votre projet.</p>
+<ul>
+<li><code>list.html</code>: pour la liste des contenus</li>
+<li><code>page.html</code>: pour un contenu</li>
+</ul>
+<p>L'outil utiliser pour les modèles est quasiment identique à <a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja</a>, via la librairie <a href="https://straight-shoota.github.io/crinja/">Crinja</a>.</p>
+<h3>Templating 101</h3>
+<p>Si une variable nommée <code>title</code> est disponible, utilisez <code>{{ title }}</code> dans le template pour afficher sa valeur.</p>
+<p>Si vous avez une variable <code>pages</code> qui est une liste d'objets avec une propritété <code>title</code>, vous pouvez bouclez sur la liste comme tel:</p>
+<pre><code>{% for page in pages %}
+  {{ page.title }}
+{% endfor %}
+</code></pre>
+<p>Si vous souhaitez un affichage conditionnel pour <code>title</code> en fonction de si elle a une valeur ou non, utilisez:</p>
+<pre><code>{% if title %}
+  Title is displayed ! {{ title }}
+{% endif %}
+</code></pre>
+<p>Rendez-vous sur l'<a href="https://mustache.github.io/mustache.5.html">aide mustache</a> pour plus d'info.</p>
+<h3>Variables pour le modèle de page de contenu</h3>
+<ul>
+<li><code>title</code>: le titre du contenu, depuis la matière liminaire.</li>
+<li><code>date</code>: la date du contenu, depuis la matière liminaire.</li>
+<li><code>dateFormatted</code>: la même chose, sous la forme suivante <code>YYYY-MM-DD</code>.</li>
+<li><code>content</code>: la contenu en html.</li>
+<li><code>contentPath</code>: le chemin vers le contenu, relatif au répertoire <code>content</code>.</li>
+<li><code>language</code>: la langue du contenu.</li>
+<li><code>multilang</code>: une liste d'objets avec les propriétés suivantes:
+<ul>
+<li><code>language</code>: une langue (comme dans le fichier beulogue.yml).</li>
+<li><code>url</code>: l'url pour la langue associée.</li>
+</ul>
+</li>
+<li><code>url</code>: l'url de la page.</li>
+<li><code>site</code>
+<ul>
+<li><code>title</code>: le titre du site.</li>
+<li><code>languages</code>: une liste des langues disponibles pour le site.</li>
+</ul>
+</li>
+<li><code>beulogue</code>
+<ul>
+<li><code>cwd</code>: le chemin courant.</li>
+</ul>
+</li>
+</ul>
+<h3>Variables pour le modèle de liste</h3>
+<ul>
+<li><code>pages</code>: une liste d'éléments tels que décrits dans la partie ci-dessus, <code>content</code> n'est pas présent dans ce cas.</li>
+<li><code>language</code>: la langue de la page.</li>
+<li><code>site</code>
+<ul>
+<li><code>title</code>: le titre du site.</li>
+<li><code>languages</code>: une liste des langues disponibles pour le site.</li>
+</ul>
+</li>
+<li><code>beulogue</code>
+<ul>
+<li><code>cwd</code>: le chemin courant.</li>
+</ul>
+</li>
+</ul>
+<p>Si vous utilisez la foncitonnalité <code>_index.md</code> ou <code>_index.LANG.md</code> pour inclure un contenu dans votre modèle de liste, vous aurez un regroupement des variables de page et de liste.</p>
+<h3>Variables pour le modèle de page de tag</h3>
+<p>Identiques à celles du modèle de liste.</p>
+<p><a href="/fr/content/emojis.html">⬅️ emojis</a> || <a href="/fr/content/multilingual.html">site multi-langues ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/content/templating.fr.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

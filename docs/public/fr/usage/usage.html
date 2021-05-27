@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/fr">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Utilisation
+					<span class="nav-lang">
+						
+						<a href="/en/usage/usage.html">en</a>
+						
+						<a href="/fr/usage/usage.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Ajoutez <code>beulogue</code> à votre <code>PATH</code> puis lancez <code>beulogue</code> !</p>
+<p>Les commandes disponibles sont:</p>
+<ul>
+<li><code>beulogue</code> ou <code>beulogue build</code> pour construire le site. Ça utilise le répertoire courant, utilisez <code>-w ./path</code> pour travailler dans un autre répertoire.</li>
+<li><code>beulogue init &lt;name&gt;</code> pour créer une base de site (dans le répertoire <code>&lt;name&gt;</code>, ou le répertoire courant).</li>
+<li><code>beulogue help</code> pour afficher l'aide.</li>
+<li><code>beulogue version</code> pour afficher la version.</li>
+</ul>
+<p>Drapeaux:</p>
+<ul>
+<li><code>-dev</code> or <code>--development</code>:
+<ul>
+<li>pour utiliser une <code>base</code> vide au lieu de celle indiquée dans le fichier de configuration pour rendre la navigation plus facile en local</li>
+<li>pour prendre en compte les fichiers dans le répertoire <code>drafts/</code></li>
+</ul>
+</li>
+<li><code>-w ./path</code> ou <code>--working-directory=./path</code> pour choisir le répertoire de travail</li>
+<li><code>-d</code> or <code>--debug</code>: pour afficher quelques messages</li>
+<li><code>-h</code> or <code>--help</code>: pour afficher l'aide</li>
+</ul>
+<h2>🐳 Avec docker</h2>
+<p>Pour construire un site sous <a href="https://fishshell.com/">Fish</a>:</p>
+<pre><code class="language-shell">docker run --rm -it -v {$PWD}:/workspace -w /workspace siegfriedehret/beulogue build
+</code></pre>
+<p>Ou sous bash:</p>
+<pre><code class="language-shell">docker run --rm -it -v S{PWD}:/workspace -w /workspace siegfriedehret/beulogue build
+</code></pre>
+<h2>Kits de démarrage</h2>
+<p>Protip: voici quelques kits de démarrage juste pour vous ! Rendez-vous sur l'un de ces miroirs:</p>
+<ul>
+<li><a href="https://github.com/SiegfriedEhret/beulogue-templates/">github</a></li>
+<li><a href="https://git.sr.ht/~siegfriedehret/beulogue-templates">sourcehut</a></li>
+<li>(pas à jour) <a href="https://bitbucket.org/siegfriedehret/beulogue-templates/">bitbucket</a></li>
+<li>(pas à jour) <a href="https://codeberg.org/SiegfriedEhret/beulogue-templates/">codeberg</a></li>
+</ul>
+<p><a href="/fr/usage/install.html">⬅️ installation</a> || <a href="/fr/usage/structure.html">structure ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/usage/usage.fr.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

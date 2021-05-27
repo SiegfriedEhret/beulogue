@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <lastBuildDate>2021-05-27</lastBuildDate>
+    <link>https://beulogue.ehret.me</link>
+    <title>Beulogue - Documentation</title>
+    <item>
+      <description>Quelques détails à propos du développement</description>
+      <link>https://beulogue.ehret.me/fr/other/development.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Développement</title>
+    </item>
+    <item>
+      <description>Quelques notes finales</description>
+      <link>https://beulogue.ehret.me/fr/other/notes.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Notes</title>
+    </item>
+    <item>
+      <description>Modèles de pages avec Crinja</description>
+      <link>https://beulogue.ehret.me/fr/content/templating.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Modèles de pages</title>
+    </item>
+    <item>
+      <description>Comment utiliser les raccourcis</description>
+      <link>https://beulogue.ehret.me/fr/content/shortcodes.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Raccourcis</title>
+    </item>
+    <item>
+      <description>Tous sur les contenus dans beulogue</description>
+      <link>https://beulogue.ehret.me/fr/content/index.html</link>
+      <pubDate>2019-06-29</pubDate>
+      <title>Contenu</title>
+    </item>
+    <item>
+      <description>Comment créer un site multi-langues</description>
+      <link>https://beulogue.ehret.me/fr/content/multilingual.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Site multi-langues</title>
+    </item>
+    <item>
+      <description>Comment utiliser la matière liminaire</description>
+      <link>https://beulogue.ehret.me/fr/content/front-matter.html</link>
+      <pubDate>2019-06-29</pubDate>
+      <title>Matière liminaire</title>
+    </item>
+    <item>
+      <description>Comment utiliser les emojis.</description>
+      <link>https://beulogue.ehret.me/fr/content/emojis.html</link>
+      <pubDate>2019-06-29</pubDate>
+      <title>Emoji</title>
+    </item>
+    <item>
+      <description>Le fichier de configuration</description>
+      <link>https://beulogue.ehret.me/fr/usage/configuration.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Configuration</title>
+    </item>
+    <item>
+      <description>Utilisation de beulogue</description>
+      <link>https://beulogue.ehret.me/fr/usage/usage.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Utilisation</title>
+    </item>
+    <item>
+      <description>Comment installer beulogue</description>
+      <link>https://beulogue.ehret.me/fr/usage/install.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Installation</title>
+    </item>
+    <item>
+      <description>Comment structurer votre projet</description>
+      <link>https://beulogue.ehret.me/fr/usage/structure.html</link>
+      <pubDate>2019-10-14</pubDate>
+      <title>Structure</title>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/en">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Multilingual site
+					<span class="nav-lang">
+						
+						<a href="/en/content/multilingual.html">en</a>
+						
+						<a href="/fr/content/multilingual.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>As explained in the Configuration part, you need at least one language, useful for the <code>lang</code> attribute for example.</p>
+<p>If our configuration is like the following:</p>
+<pre><code class="language-yaml">base: https://ehret.me
+title: My site
+languages:
+- en
+- fr
+</code></pre>
+<p>Your contents:</p>
+<ul>
+<li>In <em>english</em> (here, <code>en</code>, the first language of the list): filenames will be like <code>about.md</code> (no mention about the language in the filename).</li>
+<li>In <em>other language</em> (here, <code>fr</code>): filenames will be like <code>about.fr.md</code>.</li>
+<li>Filenames ending with a non defined language will given the default language; in our example, <code>en</code>.</li>
+</ul>
+<p>Structure:</p>
+<ul>
+<li>If you have one language: everything will start the root of the <code>public</code> folder. A <code>feed.xml</code> file will be created in that folder.</li>
+<li>If you have multiple languages: each language will start in the <code>public/&lt;language&gt;/</code> folder. A default <code>index.html</code> file will be at the root of the <code>public</code> folder, redirecting to the default language. A <code>feed.xml</code> file will be created for each language.</li>
+</ul>
+<p><a href="/en/content/templating.html">⬅️ templating</a> || <a href="/en/other/notes.html">notes ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/content/multilingual.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

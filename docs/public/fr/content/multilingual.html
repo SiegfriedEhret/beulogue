@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/fr">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Site multi-langues
+					<span class="nav-lang">
+						
+						<a href="/en/content/multilingual.html">en</a>
+						
+						<a href="/fr/content/multilingual.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Comme décrit dans la partie Configuration, il faut nécessairement une langue de base, utile pour l'attribut <code>lang</code> par exemple.</p>
+<p>Si votre configuration est comme ceci:</p>
+<pre><code class="language-yaml">base: https://ehret.me
+title: My site
+languages:
+- en
+- fr
+</code></pre>
+<p>Vos contenus:</p>
+<ul>
+<li>En <em>anglais</em> (ici <code>en</code>, la première langue de la liste): les noms de fichiers auront la forme <code>about.md</code> (pas de mention de la langue dans le nom du fichier).</li>
+<li>En <em>d'autres langues</em> (ici <code>fr</code>): les noms de fichiers auront la forme <code>about.fr.md</code>.</li>
+<li>Les fichiers ayant un suffixe de langue non décrit dans la configuration seront affectés à la langue par défaut; dans notre exemple, <code>en</code>.</li>
+</ul>
+<p>Structure:</p>
+<ul>
+<li>Si vous avez une seule langue: tout sera généré dans le répertoire <code>public</code>. Un fichier <code>feed.xml</code> sera aussi créé dans ce répertoire.</li>
+<li>Si vous avez plusieurs langues: le site pour chaque langue sera généré dans un répertoire de nommé <code>public/&lt;language&gt;/</code>. Un fichier <code>index.html</code> sera ajouté dans le répertoire <code>public/</code>, et redirigera vers la langue par défaut. Un fichier <code>feed.xml</code> sera créé pour chaque langue.</li>
+</ul>
+<p><a href="/fr/content/templating.html">⬅️ modèles de pages</a> || <a href="/fr/other/notes.html">notes ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/content/multilingual.fr.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

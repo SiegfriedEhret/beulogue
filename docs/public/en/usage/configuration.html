@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/en">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Configuration
+					<span class="nav-lang">
+						
+						<a href="/en/usage/configuration.html">en</a>
+						
+						<a href="/fr/usage/configuration.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>The configuration file for your site must be <code>beulogue.yml</code>.</p>
+<p>Example:</p>
+<pre><code class="language-yaml">base: https://ehret.me
+title: My site
+languages:
+- en
+- fr
+</code></pre>
+<p>The mandatory possible keys and values are:</p>
+<ul>
+<li><strong>base</strong> (string): the base url of your website.</li>
+<li><strong>title</strong> (string): the title of your website.</li>
+<li><strong>languages</strong> (array of strings): the list of languages for the website. You must add at least one language; the first one is the default one.</li>
+</ul>
+<p>The optional ones are:</p>
+<ul>
+<li><strong>rssFilename</strong> (string): the name for the rss feed (default: <code>feed.xml</code>)</li>
+<li><strong>sortPagesBy</strong> (string): <code>date</code> or <code>weight</code>, set the property to sort the pages (default: <code>date</code>).</li>
+<li><strong>sortPagesOrder</strong> (string): <code>asc</code> or <code>desc</code>, set the sorting order (default: <code>desc</code>).</li>
+</ul>
+<p><a href="/en/usage/structure.html">⬅️ structure</a> || <a href="/en/content/index.html">content ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/usage/configuration.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>

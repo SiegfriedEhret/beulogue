@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <lastBuildDate>2021-05-27</lastBuildDate>
+    <link>https://beulogue.ehret.me</link>
+    <title>Beulogue - Documentation</title>
+    <item>
+      <description>Some final notes</description>
+      <link>https://beulogue.ehret.me/en/other/notes.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Notes</title>
+    </item>
+    <item>
+      <description>Some details about the development</description>
+      <link>https://beulogue.ehret.me/en/other/development.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Development</title>
+    </item>
+    <item>
+      <description>How to use front matter</description>
+      <link>https://beulogue.ehret.me/en/content/front-matter.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Front matter</title>
+    </item>
+    <item>
+      <description>Templating with Crinja</description>
+      <link>https://beulogue.ehret.me/en/content/templating.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Templating</title>
+    </item>
+    <item>
+      <description>All about contents in beulogue</description>
+      <link>https://beulogue.ehret.me/en/content/index.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Content</title>
+    </item>
+    <item>
+      <description>How to use emojis</description>
+      <link>https://beulogue.ehret.me/en/content/emojis.html</link>
+      <pubDate>2019-05-27</pubDate>
+      <title>Emoji</title>
+    </item>
+    <item>
+      <description>How to make a multilingual site</description>
+      <link>https://beulogue.ehret.me/en/content/multilingual.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Multilingual site</title>
+    </item>
+    <item>
+      <description>How to use shortcodes</description>
+      <link>https://beulogue.ehret.me/en/content/shortcodes.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Shortcodes</title>
+    </item>
+    <item>
+      <description>How to structure your files</description>
+      <link>https://beulogue.ehret.me/en/usage/structure.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Structure</title>
+    </item>
+    <item>
+      <description>How to run beulogue</description>
+      <link>https://beulogue.ehret.me/en/usage/usage.html</link>
+      <pubDate>2019-05-26</pubDate>
+      <title>Usage</title>
+    </item>
+    <item>
+      <description>How to install beulogue</description>
+      <link>https://beulogue.ehret.me/en/usage/install.html</link>
+      <pubDate>2019-05-26</pubDate>
+      <title>Installation</title>
+    </item>
+    <item>
+      <description>The configuration file</description>
+      <link>https://beulogue.ehret.me/en/usage/configuration.html</link>
+      <pubDate>2019-05-25</pubDate>
+      <title>Configuration</title>
+    </item>
+  </channel>
+</rss>

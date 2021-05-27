@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>beulogue - documentation</title>
+	<meta name="description" content="`beulogue` [\bøloɡ\]: french for blog.">
+	<meta name="author" content="Siegfried Ehret">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/tinytypo.css">
+	<link rel="stylesheet" type="text/css" href="/custom.css">
+</head>
+
+	<body>
+		<header>
+	<div class="h1"><a href="/fr">Beulogue - Documentation</a></div>
+</header>
+
+		<main id="main">
+			<section class="page">
+				<h1>
+					Configuration
+					<span class="nav-lang">
+						
+						<a href="/en/usage/configuration.html">en</a>
+						
+						<a href="/fr/usage/configuration.html">fr</a>
+						
+					</span>
+				</h1>
+
+				<p>Le fichier de configuration pour votre site doit être <code>beulogue.yml</code>.</p>
+<p>Exemple:</p>
+<pre><code class="language-yaml">base: https://ehret.me
+title: Mon site
+languages:
+- en
+- fr
+</code></pre>
+<p>Les clés/valeurs obligatoires sont:</p>
+<ul>
+<li><strong>base</strong> (chaîne de caractères): l'url de base de votre site.</li>
+<li><strong>title</strong> (chaîne de caractères): le titre de votre site.</li>
+<li><strong>languages</strong> (lsite de chaînes de caractères): la liste des langues pour votre site. Vous devez en préciser une; la première est la langue par défaut.</li>
+</ul>
+<p>Les optionnelles sont:</p>
+<ul>
+<li><strong>rssFilename</strong> (chaîne de caractères): le nom du fichier RSS (valeur par défaut: <code>feed.xml</code>)</li>
+<li><strong>sortPagesBy</strong> (chaîne de caractères): <code>date</code> ou <code>weight</code>, pour choisir selon quelle propriété ordonner les pages (valeur par défaut: <code>date</code>).</li>
+<li><strong>sortPagesOrder</strong> (chaîne de caractères): <code>asc</code> ou <code>desc</code>, pour choisir le sens de tri (valeur par défaut: <code>desc</code>).</li>
+</ul>
+<p><a href="/fr/usage/structure.html">⬅️ structure</a> || <a href="/fr/content/index.html">contenus ➡️</a></p>
+
+			</section>
+		</main>
+
+		<footer>
+	<p><a href="https://github.com/SiegfriedEhret/beulogue/edit/main/docs/content/usage/configuration.fr.md">Edit this page</a></p>
+	<p>Made with <a href="https://github.com/SiegfriedEhret/beulogue/">beulogue</a> v8.1.1.</p>
+</footer>
+	</body>
+</html>
