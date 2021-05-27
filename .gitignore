@@ -3,4 +3,5 @@
 /.shards/
 *.dwarf
 
-docs/public/
+.idea/
+*.iml
